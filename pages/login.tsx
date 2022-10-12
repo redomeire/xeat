@@ -7,6 +7,7 @@ import Input from "../components/input/Input";
 import Button from "../components/button/Button";
 import Image from "next/image";
 import { Router, useRouter } from "next/router";
+import Swal from "sweetalert2";
 
 const login = () => {
     const [email, setEmail] = React.useState('');
@@ -20,7 +21,16 @@ const login = () => {
         })
             .then((res: { data: { token: string; }; }) => {
                 localStorage.setItem('Authorization', res.data.token);
-                window.location.reload();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Login successful!',
+                    timer: 2000,
+                    showConfirmButton: false
+                })
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
             })
             .catch((err: any) => {
                 console.log(err);
