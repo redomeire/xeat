@@ -4,6 +4,7 @@ import React from "react";
 import Button from "../button/Button";
 import Image from "next/image";
 import Input from "../input/Input";
+import { useRouter } from "next/router";
 
 const navbarData = [
     {
@@ -27,6 +28,7 @@ interface Props {
 const Navbar = ({ isAuthenticated }: Props) => {
     const [isVisible, setIsVisible] = React.useState(false);
     const [isSearchBarExist, setIsSearchBarExist] = React.useState(false);
+    const route = useRouter();
 
     React.useEffect(() => {
         checkRoutes();
@@ -41,7 +43,7 @@ const Navbar = ({ isAuthenticated }: Props) => {
 
     const handleLogout = () => {
         localStorage.removeItem('Authorization');
-        window.location.reload();
+        route.push('/login')
     }
 
     return (
@@ -76,7 +78,7 @@ const Navbar = ({ isAuthenticated }: Props) => {
                 </div>
                 {
                     isAuthenticated ?
-                        <Button content="Logout" className="bg-white text-black" onClick={handleLogout} >Logout</Button>
+                        <Button content="Logout" className="bg-white text-black rounded-xl" onClick={handleLogout} >Logout</Button>
                         :
                         <a href="/login">
                             <Button content="Sign in" className="bg-white text-black rounded-xl" >Sign in</Button>
@@ -102,9 +104,9 @@ const Navbar = ({ isAuthenticated }: Props) => {
                         {
 
                             navbarData.map((item, index) => (
-                                <li className="mr-5 hover:bg-white hover:text-[#19083D] text-white w-full p-4" key={index}>
-                                    <a href={item.link}>{item.name}</a>
-                                </li>
+                                <a href={item.link} className="mr-5 hover:bg-white hover:text-[#19083D] text-white w-full p-4 my-3 transition duration-300" key={index}>
+                                    <li>{item.name}</li>
+                                </a>
                             ))
                         }
                         {
@@ -121,7 +123,11 @@ const Navbar = ({ isAuthenticated }: Props) => {
                     </ul>
                     {
                         isAuthenticated ?
-                            <div className="text-white">User</div>
+                            <Button content="" className="text-primary rounded-lg font-bold font-montserrat">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 text-white">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </Button>
                             :
                             <a href="/login">
                                 <Button content="Sign in" className="bg-white text-black rounded-lg" >Sign in</Button>

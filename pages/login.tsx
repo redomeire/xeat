@@ -6,10 +6,12 @@ import AppLayout from "../components/layout/AppLayout";
 import Input from "../components/input/Input";
 import Button from "../components/button/Button";
 import Image from "next/image";
+import { Router, useRouter } from "next/router";
 
 const login = () => {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const router = useRouter();
 
     const fetchingData = () => {
         axios.post('https://reqres.in/api/login', {

@@ -5,6 +5,11 @@ import JustinBieberImage from "../../images/justin_bieber.png";
 import StadiumImage from "../../images/concert_stadium.png";
 import Input from "../../components/input/Input";
 import Select from "../../components/dropdown/Select";
+import Button from "../../components/button/Button";
+import Metamask from "../../images/metamask_icon.svg";
+import detectEthereumProvider from "@metamask/detect-provider";
+import React from "react";
+import { ethers } from "ethers";
 
 const resultData = [
     {
@@ -28,6 +33,48 @@ const resultData = [
 ]
 
 const SelectedTicket = () => {
+    const [defaultAccount, setDefaultAccount] = React.useState('');
+    const [userBalance, setUserBalance] = React.useState('');
+
+    const handleSubmit = (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
+    }
+
+    const initializeMetamask = async () => {
+        if (window.ethereum)
+            window.ethereum.request({
+                method: 'eth_requestAccounts'
+            })
+                .then((result: any[]) => {
+                    accountChangedHandler(result[0]);
+                    console.log(result[0])
+                })
+                .catch((err: any) => {
+                    console.log(err);
+                })
+    }
+
+    const accountChangedHandler = (newAccount: React.SetStateAction<string>) => {
+        setDefaultAccount(newAccount);
+        getUserBalance(newAccount);
+    }
+
+    const getUserBalance = (address: React.SetStateAction<string>) => {
+        window.ethereum.request({
+            method: 'eth_getBalance',
+            params: [address, "latest"]
+        })
+            .then((balance: React.SetStateAction<any>) => {
+                setUserBalance(ethers.utils.formatEther(balance));
+            })
+    }
+
+    React.useEffect(() => {
+        if (window !== undefined || window !== null)
+            window.ethereum.on('accountsChanged', accountChangedHandler);
+    }, [])
+
+
     return (
         <AppLayout>
             <div className="jumbotron py-16 bg-[#19083D] text-white p-5 flex items-center flex-col">
@@ -42,22 +89,49 @@ const SelectedTicket = () => {
                     </div>
                 </div>
             </div>
-            <div className="lg:w-[80%] p-5 min-h-screen mx-auto flex items-center">
-                <Image src={StadiumImage} width={500} height={500}/>
-                <form className="bg-primary p-5 text-white rounded-xl">
-                    <h1>Select Ticket</h1>
+            <div>
+                Balance : {userBalance} ETH
+            </div>
+            <div className="lg:w-[90%] p-5 min-h-screen mx-auto flex items-center justify-between md:flex-row flex-col">
+                <Image src={StadiumImage} width={400} height={400} />
+                <form className="bg-primary md:p-10 p-6 text-white rounded-xl md:w-1/2 md:my-0 my-20 min-w-[320px]" onSubmit={handleSubmit}>
+                    <h1 className="font-bold text-2xl mb-8">Select Ticket</h1>
                     <div className="flex flex-col">
-                        
-                        <Select items={resultData}/>
+                        <div className="my-3">
+                            <Select items={resultData} />
+                        </div>
 
-                        <select className="text-black">
-                            <option>20</option>
-                            <option>20</option>
-                            <option>20</option>
-                            <option>20</option>
-                            <option>20</option>
-                        </select>
-                        
+                        <div className="my-3">
+                            <Select items={resultData} />
+                        </div>
+
+                        <div className="mt-5">
+                            <Button content="" type="button" className="bg-white w-full text-black flex items-center rounded-3xl py-0 md:flex-row flex-col" onClick={initializeMetamask}>
+                                <div>
+                                    <Image src={Metamask} width={50} />
+                                </div>
+                                <p className="-mt-[5px] font-bold md:ml-5">Connect metamask wallet</p>
+                            </Button>
+                        </div>
+
+                        <div className="mt-5 flex md:flex-row flex-col items-center">
+                            <p>Belum memiliki metamask wallet?
+                            </p>
+                            <a className="font-bold md:ml-5" href="/faq">FAQ</a>
+
+                        </div>
+
+                        <hr className="mt-5" />
+
+                        <div className="mt-5 flex items-center justify-between md:flex-row flex-col">
+                            <div className="md:text-left text-center">
+                                <h3 className="font-bold text-2xl">Total Cost</h3>
+                                <h5 className="text-2xl">ETH. 5</h5>
+                            </div>
+                            <a href="/payment/payment-method" className="md:mt-0 mt-5">
+                                <Button content="" className="bg-white text-black rounded-xl font-semibold font-poppins">Buy Now</Button>
+                            </a>
+                        </div>
                     </div>
                 </form>
             </div>

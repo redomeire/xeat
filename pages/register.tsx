@@ -6,12 +6,19 @@ import Mail from "../images/mail_icon.png";
 import Password from "../images/password_icon.png";
 import Input from "../components/input/Input";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const Register = () => {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [surname, setSurname] = React.useState('');
     const [lastname, setLastname] = React.useState('');
+    const router = useRouter();
+
+    React.useEffect(() => {
+        if(window.localStorage.getItem('Authorization'))
+            router.push('/home')
+    }, [])
 
     const fetchingData = () => {
         axios.post('https://reqres.in/api/reqister', {
