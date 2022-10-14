@@ -4,10 +4,7 @@ import styled from "styled-components";
 import CardConcert from "../components/concert/CardConcert";
 import axios from "axios";
 import React from "react";
-
-const CustomImage = styled(Image)`
-    min-width: 300px;
-`;
+import { InstagramLoader, SkeletonLoader } from "../components/loader/SkeletonLoader";
 
 interface Props {
     [x: string]: any;
@@ -45,18 +42,23 @@ const Dashboard = () => {
 
     return (
         <AppLayout>
-            <div className="jumbotron pt-20 bg-primary text-white p-5 flex items-center flex-col text-center">
+            <div className="jumbotron pt-20 bg-primary text-white p-5 flex items-center flex-col text-center min-h-screen">
                 <div>
                     <h1 className="md:text-5xl text-4xl font-bold mb-5 mt-10 uppercase">concert</h1>
                     <p className="mb-10">Temukan konser artis favorit mu disini!</p>
                 </div>
                 {/* <img src={JumbotronImage} alt='imag' className="w-[50%]" /> */}
                 <div>
-                    <div className="flex lg:flex-row flex-col min-h-screen">
+                    <div className="flex lg:flex-row flex-col">
                         {
-                            data?.map((item: { id: number; event_name: string; location: string; }, index: React.Key | null | undefined) => (
-                                <CardConcert key={index} id={item.id} name={item.event_name} time={'2022-06-20'} place={item.location} />
+                            data.length !== 0 ?
+                            data?.map((item: { id: number; image: string, event_name: string; location: string; }, index: React.Key | null | undefined) => (
+                                <CardConcert imageUrl={item.image} key={index} id={item.id} name={item.event_name} time={'2022-06-20'} place={item.location} />
                             ))
+                            :
+                            <div className="bg-white p-5 h-fit rounded-lg">
+                                <InstagramLoader/>
+                            </div>
                         }
                     </div>
                 </div>
