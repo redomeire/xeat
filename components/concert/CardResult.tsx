@@ -24,7 +24,7 @@ const CardResult = ({item}: Props) => {
                     </div>
                 </div>
                 <div className="lg:mb-0 mb-5">
-                    <p className="text-xl font-semibold font-poppins">{item.event_name}</p>
+                    <p className="text-xl font-semibold font-poppins">Justin Bieber - Megaconcert</p>
                     <Button content="" className="bg-vvip mt-2 rounded-lg disabled:cursor-not-allowed text-white" disabled>VVIP</Button>
                 </div>
                 <div>
