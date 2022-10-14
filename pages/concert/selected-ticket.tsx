@@ -41,39 +41,39 @@ const SelectedTicket = () => {
         e.preventDefault();
     }
 
-    const initializeMetamask = async () => {
-        if (window.ethereum)
-            window.ethereum.request({
-                method: 'eth_requestAccounts'
-            })
-                .then((result: any[]) => {
-                    accountChangedHandler(result[0]);
-                    console.log(result[0])
-                })
-                .catch((err: any) => {
-                    console.log(err);
-                })
-    }
+    // const initializeMetamask = async () => {
+    //     if (window.ethereum)
+    //         window.ethereum.request({
+    //             method: 'eth_requestAccounts'
+    //         })
+    //             .then((result: any[]) => {
+    //                 accountChangedHandler(result[0]);
+    //                 console.log(result[0])
+    //             })
+    //             .catch((err: any) => {
+    //                 console.log(err);
+    //             })
+    // }
 
-    const accountChangedHandler = (newAccount: React.SetStateAction<string>) => {
-        setDefaultAccount(newAccount);
-        getUserBalance(newAccount);
-    }
+    // const accountChangedHandler = (newAccount: React.SetStateAction<string>) => {
+    //     setDefaultAccount(newAccount);
+    //     getUserBalance(newAccount);
+    // }
 
-    const getUserBalance = (address: React.SetStateAction<string>) => {
-        window.ethereum.request({
-            method: 'eth_getBalance',
-            params: [address, "latest"]
-        })
-            .then((balance: React.SetStateAction<any>) => {
-                setUserBalance(ethers.utils.formatEther(balance));
-            })
-    }
+    // const getUserBalance = (address: React.SetStateAction<string>) => {
+    //     window.ethereum.request({
+    //         method: 'eth_getBalance',
+    //         params: [address, "latest"]
+    //     })
+    //         .then((balance: React.SetStateAction<any>) => {
+    //             setUserBalance(ethers.utils.formatEther(balance));
+    //         })
+    // }
 
-    React.useEffect(() => {
-        if (window !== undefined || window !== null)
-            window.ethereum.on('accountsChanged', accountChangedHandler);
-    }, [])
+    // React.useEffect(() => {
+    //     if (window !== undefined || window !== null)
+    //         window.ethereum.on('accountsChanged', accountChangedHandler);
+    // }, [])
 
 
     return (
@@ -107,7 +107,7 @@ const SelectedTicket = () => {
                         </div>
 
                         <div className="mt-5">
-                            <Button content="" type="button" className="bg-white w-full text-black flex items-center rounded-3xl py-0 md:flex-row flex-col" onClick={initializeMetamask}>
+                            <Button content="" type="button" className="bg-white w-full text-black flex items-center rounded-3xl py-0 md:flex-row flex-col">
                                 <div>
                                     <Image src={Metamask} width={50} />
                                 </div>
