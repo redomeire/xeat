@@ -12,7 +12,7 @@ const SkeletonLoader = () => {
     );
 }
 
-const InstagramLoader = (props: Props) => {
+const InstagramLoader = (props: Instagram) => {
     return (
         <ContentLoader
             speed={2}
@@ -20,7 +20,7 @@ const InstagramLoader = (props: Props) => {
             backgroundColor="#f3f3f3"
             foregroundColor="#ecebeb"
             {...props}
-            className="md:w-[400px] w-full md:h-[460px]"
+            // className="md:w-[400px] w-full md:h-[460px]"
         >
             <circle cx="31" cy="31" r="15" />
             <rect x="58" y="18" rx="2" ry="2" width="140" height="10" />
@@ -45,6 +45,10 @@ const FacebookLoader = () => {
 
 interface Props {
     props?: any
+}
+
+interface Instagram {
+    className?: string
 }
 
 export { SkeletonLoader, InstagramLoader };
