@@ -43,8 +43,8 @@ const Result = () => {
             </div>
             <div className="lg:w-[80%] p-5 min-h-screen mx-auto">
                 {
-                    resultData.map(() => (
-                        <CardResult/>
+                    resultData.map((res, index) => (
+                        <CardResult key={index}/>
                     ))
                 }
             </div>

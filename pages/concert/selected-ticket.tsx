@@ -10,6 +10,7 @@ import Metamask from "../../images/metamask_icon.svg";
 import detectEthereumProvider from "@metamask/detect-provider";
 import React from "react";
 import { ethers } from "ethers";
+import Link from "next/link";
 
 const resultData = [
     {
@@ -128,9 +129,9 @@ const SelectedTicket = () => {
                                 <h3 className="font-bold text-2xl">Total Cost</h3>
                                 <h5 className="text-2xl">ETH. 5</h5>
                             </div>
-                            <a href="/payment/payment-method" className="md:mt-0 mt-5">
+                            <Link href="/payment/payment-method" className="md:mt-0 mt-5">
                                 <Button content="" className="bg-white text-black rounded-xl font-semibold font-poppins">Buy Now</Button>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </form>

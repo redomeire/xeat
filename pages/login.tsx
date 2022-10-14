@@ -8,8 +8,9 @@ import Button from "../components/button/Button";
 import Image from "next/image";
 import { Router, useRouter } from "next/router";
 import Swal from "sweetalert2";
+import Link from "next/link";
 
-const login = () => {
+const Login = () => {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const router = useRouter();
@@ -59,7 +60,7 @@ const login = () => {
                     </div>
                     <div className="mt-10">
                         <hr />
-                        <p>Belum memiliki akun ? <span className="text-[#19083D] font-bold"><a href="/register">Sign up</a></span></p>
+                        <p>Belum memiliki akun ? <span className="text-[#19083D] font-bold"><Link href="/register">Sign up</Link></span></p>
                     </div>
                 </form>
             </div>
@@ -67,4 +68,4 @@ const login = () => {
     );
 }
 
-export default login;
+export default Login;

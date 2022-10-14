@@ -20,7 +20,7 @@ const Input = ({ placeholder, onChange, className, beginningIcon, type, required
                     {beginningIcon}
                 </div>
             }
-            <input type={type} placeholder={placeholder} onChange={onChange} className={`${beginningIcon !== undefined ? 'pl-10' : 'pl-5'} transition duration-300 outline-none focus:ring-2 ring-[#19083D] ${className} p-3`} required={required} />
+            <input type={type} placeholder={placeholder} onChange={onChange} className={`${beginningIcon !== undefined ? 'pl-10' : 'pl-5'} transition duration-300 outline-none focus:ring-3 ring-[#19083D] ${className} p-3`} required={required} />
             {
                 endIcon && 
                 <div className=" absolute right-[5px]">
