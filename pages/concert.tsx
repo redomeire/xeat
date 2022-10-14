@@ -31,7 +31,7 @@ const Dashboard = () => {
     }
 
     const getData = () => {
-        axios.get('http://xeat-website-api.herokuapp.com/public/api/event')
+        axios.get('https://xeat-website-api.herokuapp.com/public/api/event')
             .then((res) => {
                 setData(res.data)
             })
