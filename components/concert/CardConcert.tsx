@@ -1,14 +1,16 @@
-const CardConcert = ({ name, time, place, id }: Props) => {
+import Link from "next/link";
+
+const CardConcert = ({ name, time, place, id, imageUrl }: Props) => {
     return (
-        <a href={`/concert/${id}/details`} className="md:m-5 bg-slate-200 rounded-xl min-w-[360px] max-w-[360px]">
-            <div className="lg:my-0 my-2 text-slate-800 text-left flex w-full flex-col">
-                <div className="bg-[url('https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')] min-w-[200px] h-[300px] rounded-xl hover:brightness-75 cursor-pointer transition duration-300 bg-cover" />
+        <Link href={`/concert/${id}/details`} className="md:m-5 lg:my-0 my-3 bg-slate-200 rounded-xl md:min-w-[360px] md:max-w-[360px] min-w-[300px] relative">
+            <div className="lg:my-0 text-slate-800 text-left flex w-full flex-col">
+                <div className={`min-w-[200px] h-[300px] rounded-xl hover:brightness-75 cursor-pointer transition duration-300 bg-cover`} style={{backgroundImage:  `url(${imageUrl})`}} />
                 <div className="p-3">
-                    <div>
-                        <h3 className="text-xl mb-5 font-montserrat font-semibold">{name}</h3>
-                        <h5 className="text-md mb-2 font-poppins font-semibold">{time}</h5>
+                    <div >
+                        <h3 className="min-h-[50px] text-xl mb-5 font-montserrat font-semibold">{name.substring(0, 50)}</h3>
                     </div>
-                    <div>
+                    <div className="">
+                        <h5 className="text-md mb-2 font-poppins font-semibold">{time}</h5>
                         <p>{place}</p>
                     </div>
                     <div>
@@ -16,7 +18,7 @@ const CardConcert = ({ name, time, place, id }: Props) => {
                     </div>
                 </div>
             </div>
-        </a>
+        </Link>
     );
 }
 
@@ -24,7 +26,8 @@ interface Props {
     name: string,
     time: string,
     place: string,
-    id: number
+    id: number,
+    imageUrl: string
 }
 
 export default CardConcert;

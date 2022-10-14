@@ -1,9 +1,10 @@
-import Image from "next/image";
+import axios from "axios";
 import { useRouter } from "next/router";
 import React from "react";
 import Button from "../../../components/button/Button";
 import AppLayout from "../../../components/layout/AppLayout";
-import JustinBieberImage from "../../../images/justin_bieber.png";
+import { InstagramLoader, SkeletonLoader } from "../../../components/loader/SkeletonLoader";
+import CardResult from "../../../components/concert/CardResult";
 
 const resultData = [
     {
@@ -18,101 +19,82 @@ const resultData = [
     },
 ]
 
+interface Props {
+    [x: string]: any;
+
+}
+
 const Details = () => {
     const router = useRouter();
+    const [items, setItems] = React.useState<Props>({});
+    const [data, setData] = React.useState<Props>([]);
+    const [pageId, setPageId] = React.useState<string | string[] | undefined>('');
 
-    console.log(router.query);
+    React.useEffect(() => {
+        setPageId(router.query.id);
+    }, [router.query])
+
+    React.useEffect(() => {
+        getData();
+    }, [pageId])
+
+    const getData = () => {
+        axios.get('https://xeat-website-api.herokuapp.com/public/api/event')
+            .then((res) => {
+                if (res.data !== null) {
+                    res.data.forEach((element: any) => {
+                        if (typeof pageId === 'string')
+                            if (element.id == pageId)
+                                setItems(element)
+                    });
+                }
+
+                console.log(items)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+
     return (
         <AppLayout>
             <div className="jumbotron py-16 bg-[#19083D] text-white p-5 flex items-center flex-col">
-                <div className="jumbotron pt-20 bg-[#19083D] text-white p-5 flex items-center flex-col-reverse lg:flex-row justify-between">
+                <div className="md:w-[90%] jumbotron pt-20 bg-[#19083D] text-white p-5 flex items-center flex-col-reverse lg:flex-row justify-between">
                     <div className="lg:w-1/2">
-                        <h1 className="md:text-4xl text-3xl font-bold mt-5 lg:mt-5 mb-5 underline lg:leading-[50px] leading-[40px]">Justin Bieber - Justice World Tour 2022 Jakarta</h1>
-                        <p className="mb-10">Justin Bieber Justice World Tour kini hadir di jakarta untuk menyapa fans</p>
+                        {
+                            Object.keys(items).length !== 0 ?
+                                <>
+                                    <h1 className="md:text-4xl text-3xl font-bold mt-5 lg:mt-5 mb-5 underline lg:leading-[50px] leading-[40px]">{items.event_name}</h1>
+                                    <p className="mb-10">{items.description}</p>
+                                </>
+                                :
+                                <SkeletonLoader />
+                        }
+
                         <Button content="" className="mt-20 px-5 border-b-4 border-b-white">
-                            <p>Ticket</p>
+                            <p className="font-bold">Ticket</p>
                         </Button>
                     </div>
-                    <Image src={JustinBieberImage} alt="pic" width={400} height={250}/>
+                    {/* <Image src={items.image} alt="pic" width={400} height={250} /> */}
+                    {
+                        Object.keys(items).length === 0 ?
+                            <div className="bg-white p-5 h-fit rounded-lg">
+                                <InstagramLoader className="md:w-[300px] w-full md:h-[300px]" />
+                            </div>
+                            :
+                            <img src={items.image} className="w-[400px]" />
+                    }
                 </div>
             </div>
             <div className="lg:w-[90%] md:p-5 p-2 min-h-screen mx-auto">
                 <h1 className="font-bold text-lg font-poppins md:ml-10 ml-5">All Concert</h1>
                 {
                     resultData.map((item, index) => (
-                        <CardResult key={index}/>
+                        <CardResult key={index} item={item} />
                     ))
                 }
             </div>
-            {/* <Button content="Logout" onClick={handleLogout} >Loogut</Button> */}
         </AppLayout>
-    );
-}
-
-const CardResult = () => {
-    const [isOpen, setIsOpen] = React.useState(false);
-
-    return (
-        <div className="border-b-2">
-            <div className={` flex items-start justify-between p-5 lg:flex-row flex-col cursor-pointer relative`}>
-                <div className="lg:mb-0 mb-5 flex lg:items-center items-start lg:flex-row flex-row-reverse">
-                    <Button content=""  onClick={() => setIsOpen(!isOpen)}>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={`transition w-6 h-6 text-black ${isOpen && 'rotate-180'}`}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                        </svg>
-                    </Button>
-                    <div className="ml-1">
-                        <p className="text-purple font-bold text-xl">MAR 23, 2022</p>
-                        <p>Sabtu, 7.30 WIB</p>
-                    </div>
-                </div>
-                <div className="lg:mb-0 mb-5">
-                    <p className="text-xl font-semibold font-poppins">Justin Bieber - Justice World Tour 2022 Jakarta</p>
-                    <Button content="" className="bg-vvip mt-2 rounded-lg disabled:cursor-not-allowed text-white" disabled>VVIP</Button>
-                </div>
-                <div>
-                    <a href="/concert/selected-ticket">
-                    <Button content="" className="bg-primary text-white rounded-lg" >Lihat Tiket</Button>
-                    </a>
-                </div>
-
-            </div>
-            <div className="p-4 bg-white rounded-lg flex lg:flex-row flex-col font-poppins">
-                <div className="lg:ml-20">
-                    <div className={`${!isOpen && 'hidden'} lg:ml-10`}>
-                        <h4 className="font-bold">Line Up</h4>
-                        <div className="flex items-center my-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                            <p className="ml-2">Justin  Bieber</p>
-                        </div>
-                    </div>
-                    <div className={`${!isOpen && 'hidden'} lg:ml-10`}>
-                        <div className="flex items-center my-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                            <p className="ml-2">Justin  Bieber</p>
-                        </div>
-                    </div>
-                </div>
-                <div className={`${!isOpen && 'hidden'} lg:ml-10`}>
-                    <div className="my-2">
-                        <h3 className="font-bold">Venue</h3>
-                        <p className="">Stadion Madya Gelora Bung Karno, Jakarta, Indonesia</p>
-                    </div>
-                    <div className="my-2">
-                        <h3 className="font-bold">Venue</h3>
-                        <p className="">Stadion Madya Gelora Bung Karno, Jakarta, Indonesia</p>
-                    </div>
-                    <div className="my-2">
-                        <h3 className="font-bold">Venue</h3>
-                        <p className="">Stadion Madya Gelora Bung Karno, Jakarta, Indonesia</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     );
 }
 
