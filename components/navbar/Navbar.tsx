@@ -49,7 +49,7 @@ const Navbar = ({ isAuthenticated }: Props) => {
 
     return (
         <>
-            <div className="md:flex fixed top-0 w-full hidden items-center justify-between bg-[#19083D] py-1 px-4 z-50">
+            <div className="md:flex fixed top-0 w-full hidden items-center justify-between bg-[#19083D] py-1 px-4 z-40">
                 <div className="flex items-center">
                     <div className="text-white">
                         {/* <img src={XeatLogo} alt="logo" className="w-[150px]" /> */}
@@ -86,7 +86,7 @@ const Navbar = ({ isAuthenticated }: Props) => {
                         </Link>
                 }
             </div>
-            <div className="responsived fixed top-0 w-full flex items-center justify-between bg-[#19083D] py-1 px-4 md:hidden z-50">
+            <div className="responsived fixed top-0 w-full flex items-center justify-between bg-[#19083D] py-1 px-4 md:hidden z-40">
                 <div className="flex items-center justify-between w-full">
                     <div className="flex items-center">
                         <div className="text-white">
@@ -105,8 +105,10 @@ const Navbar = ({ isAuthenticated }: Props) => {
                         {
 
                             navbarData.map((item, index) => (
-                                <Link href={item.link} className="mr-5 hover:bg-white hover:text-[#19083D] text-white w-full p-4 my-3 transition duration-300" key={index}>
-                                    <li>{item.name}</li>
+                                <Link href={item.link} className="" key={index}>
+                                    <div className="mr-5 hover:bg-white hover:text-[#19083D] text-white w-full p-4 my-2 transition duration-300">
+                                        <li>{item.name}</li>
+                                    </div>
                                 </Link>
                             ))
                         }

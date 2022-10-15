@@ -56,7 +56,7 @@ const Dashboard = () => {
                                 <CardConcert imageUrl={item.image} key={index} id={item.id} name={item.event_name} time={'2022-06-20'} place={item.location} />
                             ))
                             :
-                            <div className="bg-white p-5 h-fit rounded-lg">
+                            <div className="bg-white p-5 h-fit rounded-lg md:w-[400px] w-full md:h-[460px]">
                                 <InstagramLoader/>
                             </div>
                         }
