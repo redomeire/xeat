@@ -34,9 +34,9 @@ const CardResult = ({ event_name, event_date, event_time, location, line_up, tic
                     <Button content="" className={`${ticket_type === 'VVIP' ? 'bg-vvip' : ticket_type === 'VIP' ? 'bg-vip' : 'border border-slate-500 text-slate-500'} mt-2 rounded-lg disabled:cursor-not-allowed text-white`} disabled>{ticket_type}</Button>
                 </div>
                 <div>
-                    <CustomLink href="/concert/selected-ticket">
+                    <Link href="/concert/selected-ticket">
                         <Button content="" className="bg-primary text-white rounded-lg" >Lihat Tiket</Button>
-                    </CustomLink>
+                    </Link>
                 </div>
 
             </div>

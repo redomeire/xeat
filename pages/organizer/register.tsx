@@ -67,7 +67,7 @@ const Register = () => {
                     </div>
                     <div className="mt-10">
                         <hr />
-                        <p>Sudah memiliki akun ? <span className="font-bold text-[#19083D]"><CustomLink href="/organizer/login">Sign In</CustomLink></span></p>
+                        <p>Sudah memiliki akun ? <span className="font-bold text-[#19083D]"><Link href="/organizer/login">Sign In</Link></span></p>
                     </div>
                 </form>
             </div>

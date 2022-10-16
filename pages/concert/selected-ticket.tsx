@@ -130,9 +130,9 @@ const SelectedTicket = () => {
                                 <h3 className="font-bold text-2xl">Total Cost</h3>
                                 <h5 className="text-2xl">ETH. 5</h5>
                             </div>
-                            <CustomLink href="/payment/payment-method" className="md:mt-0 mt-5">
+                            <Link href="/payment/payment-method" className="md:mt-0 mt-5">
                                 <Button content="" className="bg-white text-black rounded-xl font-semibold font-poppins">Buy Now</Button>
-                            </CustomLink>
+                            </Link>
                         </div>
                     </div>
                 </form>
