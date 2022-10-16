@@ -1,5 +1,4 @@
 import Link from "next/link";
-import CustomLink from "../link/CustomLink";
 
 const CardConcert = ({ name, time, place, id, imageUrl }: Props) => {
     return (

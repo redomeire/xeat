@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React from "react";
 import Button from "../button/Button";
-import CustomLink from "../link/CustomLink";
 
 interface Props {
     event_name: string,

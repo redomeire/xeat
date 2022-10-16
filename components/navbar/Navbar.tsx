@@ -6,7 +6,6 @@ import Image from "next/image";
 import Input from "../input/Input";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import CustomLink from "../link/CustomLink";
 
 const navbarData = [
     {

@@ -9,7 +9,6 @@ import Image from "next/image";
 import { Router, useRouter } from "next/router";
 import Swal from "sweetalert2";
 import Link from "next/link";
-import CustomLink from "../../components/link/CustomLink";
 
 const Login = () => {
     const [email, setEmail] = React.useState('');

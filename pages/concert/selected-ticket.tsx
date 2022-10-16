@@ -11,7 +11,6 @@ import detectEthereumProvider from "@metamask/detect-provider";
 import React from "react";
 import { ethers } from "ethers";
 import Link from "next/link";
-import CustomLink from "../../components/link/CustomLink";
 
 const resultData = [
     {

@@ -8,7 +8,6 @@ import Input from "../../components/input/Input";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import CustomLink from "../../components/link/CustomLink";
 
 const Register = () => {
     const [email, setEmail] = React.useState('');
