@@ -6,6 +6,7 @@ import Image from "next/image";
 import Input from "../input/Input";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import CustomLink from "../link/CustomLink";
 
 const navbarData = [
     {
@@ -54,9 +55,9 @@ const Navbar = ({ isAuthenticated }: Props) => {
                     <div className="text-white">
                         {/* <img src={XeatLogo} alt="logo" className="w-[150px]" /> */}
                         <div className="cursor-pointer">
-                        <Link href='/'>
+                        <CustomLink href='/'>
                             <Image src={XeatLogo} alt="pic" width={150} height={80} />
-                        </Link>
+                        </CustomLink>
                         </div>
                     </div>
                     <div className="ml-10">
@@ -65,7 +66,7 @@ const Navbar = ({ isAuthenticated }: Props) => {
                                 !isSearchBarExist ?
                                     navbarData.map((item, index) => (
                                         <li className="mx-5 text-white" key={index}>
-                                            <Link href={item.link}>{item.name}</Link>
+                                            <CustomLink href={item.link}>{item.name}</CustomLink>
                                         </li>
                                     )) :
                                     <Input type="text" className="p-3 rounded-xl text-slate-700 w-[400px] pr-[100px] focus:ring-4 focus:ring-slate-400" placeholder="cari tiket yang anda inginkan" endIcon={
@@ -83,17 +84,19 @@ const Navbar = ({ isAuthenticated }: Props) => {
                     isAuthenticated ?
                         <Button content="Logout" className="bg-white text-black rounded-xl" onClick={handleLogout} >Logout</Button>
                         :
-                        <Link href="/login">
+                        <CustomLink href="/organizer/login">
                             <Button content="Sign in" className="bg-white text-black rounded-xl" >Sign in</Button>
-                        </Link>
+                        </CustomLink>
                 }
             </div>
             <div className="responsived fixed top-0 w-full flex items-center justify-between bg-[#19083D] py-1 px-4 md:hidden z-40">
                 <div className="flex items-center justify-between w-full">
                     <div className="flex items-center">
-                        <div className="text-white">
+                        <div className="text-white cursor-pointer">
                             {/* <img src={'../../images/xeat_logo.png'} alt="logo" className="w-[150px]" /> */}
-                            <Image src={XeatLogo} alt="pic" width={150} height={80} />
+                            <CustomLink href="/">
+                                <Image src={XeatLogo} alt="pic" width={150} height={80} />
+                            </CustomLink>
                         </div>
                     </div>
                     <button onClick={() => setIsVisible(!isVisible)}>
@@ -107,11 +110,11 @@ const Navbar = ({ isAuthenticated }: Props) => {
                         {
 
                             navbarData.map((item, index) => (
-                                <Link href={item.link} className="" key={index}>
+                                <CustomLink href={item.link} className="" key={index}>
                                     <div className="mr-5 hover:bg-white hover:text-[#19083D] text-white w-full p-4 my-2 transition duration-300">
                                         <li>{item.name}</li>
                                     </div>
-                                </Link>
+                                </CustomLink>
                             ))
                         }
                         {
@@ -134,9 +137,9 @@ const Navbar = ({ isAuthenticated }: Props) => {
                                 </svg>
                             </Button>
                             :
-                            <Link href="/login">
+                            <CustomLink href="/organizer/login">
                                 <Button content="Sign in" className="bg-white text-black rounded-lg" >Sign in</Button>
-                            </Link>
+                            </CustomLink>
                     }
                 </div>
             </div>

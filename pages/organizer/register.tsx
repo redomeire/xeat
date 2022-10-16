@@ -8,6 +8,7 @@ import Input from "../../components/input/Input";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import CustomLink from "../../components/link/CustomLink";
 
 const Register = () => {
     const [email, setEmail] = React.useState('');
@@ -66,7 +67,7 @@ const Register = () => {
                     </div>
                     <div className="mt-10">
                         <hr />
-                        <p>Sudah memiliki akun ? <span className="font-bold text-[#19083D]"><Link href="/login">Sign In</Link></span></p>
+                        <p>Sudah memiliki akun ? <span className="font-bold text-[#19083D]"><CustomLink href="/organizer/login">Sign In</CustomLink></span></p>
                     </div>
                 </form>
             </div>

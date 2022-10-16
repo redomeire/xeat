@@ -39,6 +39,15 @@ const Details = () => {
         getData();
     }, [pageId])
 
+    const splitArray = (arr: string) => {
+        let newArray: string[] = [];
+
+        if(arr !== undefined)
+            newArray = arr.replace("[", "").replace("]", "").replaceAll('"', "").split(",")
+
+        return newArray;
+    }
+
     const getData = () => {
         axios.get('https://xeat-website-api.herokuapp.com/public/api/event')
             .then((res) => {
@@ -99,11 +108,12 @@ const Details = () => {
             </div>
             <div className="lg:w-[90%] md:p-5 p-2 min-h-screen mx-auto">
                 <h1 className="font-bold text-lg font-poppins md:ml-10 ml-5">All Concert</h1>
+
                 {
-                    resultData.map((item, index) => (
-                        <CardResult key={index} item={item} />
+                    splitArray(items.ticket_type).map((item, index) => (
+                         <CardResult key={index} line_up={splitArray(items.line_up)} location={items.location} event_name={items.event_name} event_date={items.event_date} event_time={items.event_time} ticket_type={item} />
                     ))
-                }
+                } 
             </div>
         </AppLayout>
     );

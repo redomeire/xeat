@@ -57,7 +57,7 @@ const Dashboard = () => {
             <div className="px-10">
                 <div>
                     <h4 className="font-bold text-xl my-10">Categories</h4>
-                    <div className="flex flex-col md:flex-row p-2">
+                    <div className="flex flex-col lg:flex-row p-2">
                         <CardEvent />
                         <CardEvent />
                         <CardEvent />
@@ -68,7 +68,7 @@ const Dashboard = () => {
                     <div className="md:ml-10">
                         <div>
                             <h5 className="ml-1 font-bold text-lg my-5">Concert</h5>
-                            <div className="flex flex-col md:flex-row">
+                            <div className="flex flex-col lg:flex-row">
                                 <CardEvent />
                                 <CardEvent />
                                 <CardEvent />
@@ -76,7 +76,7 @@ const Dashboard = () => {
                         </div>
                         <div>
                             <h5 className="font-bold text-lg my-5">Sport</h5>
-                            <div className="flex flex-col md:flex-row">
+                            <div className="flex flex-col lg:flex-row">
                                 <CardEvent />
                                 <CardEvent />
                                 <CardEvent />
@@ -84,7 +84,7 @@ const Dashboard = () => {
                         </div>
                         <div>
                             <h5 className="ml-2 font-bold text-lg my-5">Park</h5>
-                            <div className="flex flex-col md:flex-row">
+                            <div className="flex flex-col lg:flex-row">
                                 <CardEvent />
                                 <CardEvent />
                                 <CardEvent />
