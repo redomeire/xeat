@@ -5,6 +5,7 @@ import AppLayout from "../components/layout/AppLayout";
 import JumbotronImageSVG from "../images/jumbotron_image.svg";
 import styled from "styled-components";
 import CardEvent from "../components/home/CardEvent";
+import { motion } from "framer-motion";
 
 const CustomImage = styled(Image)`
     min-width: 300px;
@@ -26,7 +27,11 @@ const Dashboard = () => {
     return (
         <AppLayout>
             <div className="jumbotron pt-20 px-10 bg-[#19083D] text-white p-5 flex items-center flex-col-reverse lg:flex-row justify-between">
-                <div className="md:w-1/2">
+                <motion.div
+                initial={{x: -50}}
+                animate={{x: 0}}
+                transition={{duration: 0.3, ease: 'easeInOut'}}
+                className="md:w-1/2">
                     <h1 className="md:text-5xl text-4xl font-bold mb-5">Find the tickets at fair prices</h1>
                     <p className="mb-10">An NFT event ticketing marketplace help eliminating fraud and reducing the impact of scalping.</p>
                     <form onSubmit={handleSearch}>
@@ -38,9 +43,15 @@ const Dashboard = () => {
                             </Button>
                         } />
                     </form>
-                </div>
+                </motion.div>
                 {/* <img src={JumbotronImage} alt='imag' className="w-[50%]" /> */}
+                <motion.div
+                initial={{x: 50}}
+                animate={{x: 0}}
+                transition={{duration: 0.3, ease: 'easeInOut'}}
+                >
                 <CustomImage src={JumbotronImageSVG} alt="pic" className="md:w-1/2" />
+                </motion.div>
             </div>
             {/* <Button content="Logout" onClick={handleLogout} >Loogut</Button> */}
             <div className="px-10">

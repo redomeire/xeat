@@ -53,9 +53,11 @@ const Navbar = ({ isAuthenticated }: Props) => {
                 <div className="flex items-center">
                     <div className="text-white">
                         {/* <img src={XeatLogo} alt="logo" className="w-[150px]" /> */}
+                        <div className="cursor-pointer">
                         <Link href='/'>
                             <Image src={XeatLogo} alt="pic" width={150} height={80} />
                         </Link>
+                        </div>
                     </div>
                     <div className="ml-10">
                         <ul className="flex items-center">
