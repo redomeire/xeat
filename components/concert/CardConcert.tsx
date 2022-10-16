@@ -3,7 +3,7 @@ import CustomLink from "../link/CustomLink";
 
 const CardConcert = ({ name, time, place, id, imageUrl }: Props) => {
     return (
-        <CustomLink href={`/concert/${id}/details`} className="">
+        <Link href={`/concert/${id}/details`} className="">
             <div className="md:m-5 lg:my-0 my-3 bg-slate-200 rounded-xl md:min-w-[360px] md:max-w-[360px] min-w-[300px] relative text-slate-800 cursor-pointer text-left">
                 <div className={`min-w-[200px] h-[300px] rounded-xl hover:brightness-75 cursor-pointer transition duration-300 bg-cover`} style={{backgroundImage:  `url(${imageUrl})`}} />
                 <div className="p-3">
@@ -19,7 +19,7 @@ const CardConcert = ({ name, time, place, id, imageUrl }: Props) => {
                     </div>
                 </div>
             </div>
-        </CustomLink>
+        </Link>
     );
 }
 
