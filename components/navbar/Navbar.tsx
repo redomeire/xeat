@@ -49,13 +49,15 @@ const Navbar = ({ isAuthenticated }: Props) => {
 
     return (
         <>
-            <div className="md:flex fixed top-0 w-full hidden items-center justify-between bg-[#19083D] py-1 px-4 z-50">
+            <div className="md:flex fixed top-0 w-full hidden items-center justify-between bg-[#19083D] py-1 px-4 z-40">
                 <div className="flex items-center">
                     <div className="text-white">
                         {/* <img src={XeatLogo} alt="logo" className="w-[150px]" /> */}
+                        <div className="cursor-pointer">
                         <Link href='/'>
                             <Image src={XeatLogo} alt="pic" width={150} height={80} />
                         </Link>
+                        </div>
                     </div>
                     <div className="ml-10">
                         <ul className="flex items-center">
@@ -81,17 +83,19 @@ const Navbar = ({ isAuthenticated }: Props) => {
                     isAuthenticated ?
                         <Button content="Logout" className="bg-white text-black rounded-xl" onClick={handleLogout} >Logout</Button>
                         :
-                        <Link href="/login">
+                        <Link href="/organizer/login">
                             <Button content="Sign in" className="bg-white text-black rounded-xl" >Sign in</Button>
                         </Link>
                 }
             </div>
-            <div className="responsived fixed top-0 w-full flex items-center justify-between bg-[#19083D] py-1 px-4 md:hidden z-50">
+            <div className="responsived fixed top-0 w-full flex items-center justify-between bg-[#19083D] py-1 px-4 md:hidden z-40">
                 <div className="flex items-center justify-between w-full">
                     <div className="flex items-center">
-                        <div className="text-white">
+                        <div className="text-white cursor-pointer">
                             {/* <img src={'../../images/xeat_logo.png'} alt="logo" className="w-[150px]" /> */}
-                            <Image src={XeatLogo} alt="pic" width={150} height={80} />
+                            <Link href="/">
+                                <Image src={XeatLogo} alt="pic" width={150} height={80} />
+                            </Link>
                         </div>
                     </div>
                     <button onClick={() => setIsVisible(!isVisible)}>
@@ -105,8 +109,10 @@ const Navbar = ({ isAuthenticated }: Props) => {
                         {
 
                             navbarData.map((item, index) => (
-                                <Link href={item.link} className="mr-5 hover:bg-white hover:text-[#19083D] text-white w-full p-4 my-3 transition duration-300" key={index}>
-                                    <li>{item.name}</li>
+                                <Link href={item.link} className="" key={index}>
+                                    <div className="mr-5 hover:bg-white hover:text-[#19083D] text-white w-full p-4 my-2 transition duration-300">
+                                        <li>{item.name}</li>
+                                    </div>
                                 </Link>
                             ))
                         }
@@ -130,7 +136,7 @@ const Navbar = ({ isAuthenticated }: Props) => {
                                 </svg>
                             </Button>
                             :
-                            <Link href="/login">
+                            <Link href="/organizer/login">
                                 <Button content="Sign in" className="bg-white text-black rounded-lg" >Sign in</Button>
                             </Link>
                     }

@@ -1,10 +1,10 @@
 import React from "react";
 import axios from 'axios';
-import Mail from "../images/mail_icon.png";
-import Password from "../images/password_icon.png";
-import AppLayout from "../components/layout/AppLayout";
-import Input from "../components/input/Input";
-import Button from "../components/button/Button";
+import Mail from "../../images/mail_icon.png";
+import Password from "../../images/password_icon.png";
+import AppLayout from "../../components/layout/AppLayout";
+import Input from "../../components/input/Input";
+import Button from "../../components/button/Button";
 import Image from "next/image";
 import { Router, useRouter } from "next/router";
 import Swal from "sweetalert2";
@@ -60,7 +60,7 @@ const Login = () => {
                     </div>
                     <div className="mt-10">
                         <hr />
-                        <p>Belum memiliki akun ? <span className="text-[#19083D] font-bold"><Link href="/register">Sign up</Link></span></p>
+                        <p>Belum memiliki akun ? <span className="text-[#19083D] font-bold"><Link href="/organizer/register">Sign up</Link></span></p>
                     </div>
                 </form>
             </div>

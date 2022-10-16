@@ -1,10 +1,10 @@
 import React from "react";
-import AppLayout from "../components/layout/AppLayout";
+import AppLayout from "../../components/layout/AppLayout";
 import axios from 'axios';
-import Button from "../components/button/Button";
-import Mail from "../images/mail_icon.png";
-import Password from "../images/password_icon.png";
-import Input from "../components/input/Input";
+import Button from "../../components/button/Button";
+import Mail from "../../images/mail_icon.png";
+import Password from "../../images/password_icon.png";
+import Input from "../../components/input/Input";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -66,7 +66,7 @@ const Register = () => {
                     </div>
                     <div className="mt-10">
                         <hr />
-                        <p>Sudah memiliki akun ? <span className="font-bold text-[#19083D]"><Link href="/login">Sign In</Link></span></p>
+                        <p>Sudah memiliki akun ? <span className="font-bold text-[#19083D]"><Link href="/organizer/login">Sign In</Link></span></p>
                     </div>
                 </form>
             </div>

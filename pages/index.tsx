@@ -2,9 +2,10 @@ import Image from "next/image";
 import Button from "../components/button/Button";
 import Input from "../components/input/Input";
 import AppLayout from "../components/layout/AppLayout";
-import JumbotronImage from "../images/jumbotron_image.png";
+import JumbotronImageSVG from "../images/jumbotron_image.svg";
 import styled from "styled-components";
 import CardEvent from "../components/home/CardEvent";
+import { motion } from "framer-motion";
 
 const CustomImage = styled(Image)`
     min-width: 300px;
@@ -25,8 +26,12 @@ const Dashboard = () => {
 
     return (
         <AppLayout>
-            <div className="jumbotron pt-20 bg-[#19083D] text-white p-5 flex items-center flex-col-reverse lg:flex-row justify-between">
-                <div className="md:w-1/2">
+            <div className="jumbotron pt-20 px-10 bg-[#19083D] text-white p-5 flex items-center flex-col-reverse lg:flex-row justify-between">
+                <motion.div
+                initial={{x: -50}}
+                animate={{x: 0}}
+                transition={{duration: 0.3, ease: 'easeInOut'}}
+                className="md:w-1/2">
                     <h1 className="md:text-5xl text-4xl font-bold mb-5">Find the tickets at fair prices</h1>
                     <p className="mb-10">An NFT event ticketing marketplace help eliminating fraud and reducing the impact of scalping.</p>
                     <form onSubmit={handleSearch}>
@@ -38,15 +43,21 @@ const Dashboard = () => {
                             </Button>
                         } />
                     </form>
-                </div>
+                </motion.div>
                 {/* <img src={JumbotronImage} alt='imag' className="w-[50%]" /> */}
-                <CustomImage src={JumbotronImage} alt="pic" className="md:w-1/2" />
+                <motion.div
+                initial={{x: 50}}
+                animate={{x: 0}}
+                transition={{duration: 0.3, ease: 'easeInOut'}}
+                >
+                <CustomImage src={JumbotronImageSVG} alt="pic" className="md:w-1/2" />
+                </motion.div>
             </div>
             {/* <Button content="Logout" onClick={handleLogout} >Loogut</Button> */}
-            <div>
+            <div className="px-10">
                 <div>
-                    <h4 className="ml-2 font-bold text-xl my-10">Categories</h4>
-                    <div className="flex flex-col md:flex-row p-2">
+                    <h4 className="font-bold text-xl my-10">Categories</h4>
+                    <div className="flex flex-col lg:flex-row p-2">
                         <CardEvent />
                         <CardEvent />
                         <CardEvent />
@@ -54,18 +65,18 @@ const Dashboard = () => {
                 </div>
                 <div className="my-10">
                     <h4 className="ml-2 font-bold text-xl my-5">Top selling</h4>
-                    <div className="ml-10">
+                    <div className="md:ml-10">
                         <div>
-                            <h5 className="ml-2 font-bold text-lg my-5">Concert</h5>
-                            <div className="flex flex-col md:flex-row p-2">
+                            <h5 className="ml-1 font-bold text-lg my-5">Concert</h5>
+                            <div className="flex flex-col lg:flex-row">
                                 <CardEvent />
                                 <CardEvent />
                                 <CardEvent />
                             </div>
                         </div>
                         <div>
-                            <h5 className="ml-2 font-bold text-lg my-5">Sport</h5>
-                            <div className="flex flex-col md:flex-row p-2">
+                            <h5 className="font-bold text-lg my-5">Sport</h5>
+                            <div className="flex flex-col lg:flex-row">
                                 <CardEvent />
                                 <CardEvent />
                                 <CardEvent />
@@ -73,7 +84,7 @@ const Dashboard = () => {
                         </div>
                         <div>
                             <h5 className="ml-2 font-bold text-lg my-5">Park</h5>
-                            <div className="flex flex-col md:flex-row p-2">
+                            <div className="flex flex-col lg:flex-row">
                                 <CardEvent />
                                 <CardEvent />
                                 <CardEvent />

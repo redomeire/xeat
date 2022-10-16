@@ -5,6 +5,7 @@ import CardConcert from "../components/concert/CardConcert";
 import axios from "axios";
 import React from "react";
 import { InstagramLoader, SkeletonLoader } from "../components/loader/SkeletonLoader";
+import { motion } from 'framer-motion';
 
 interface Props {
     [x: string]: any;
@@ -49,18 +50,22 @@ const Dashboard = () => {
                 </div>
                 {/* <img src={JumbotronImage} alt='imag' className="w-[50%]" /> */}
                 <div>
-                    <div className="flex lg:flex-row flex-col">
+                    <motion.div
+                    initial={{y: 90}}
+                    animate={{y: 0}}
+                    transition={{ease: 'easeInOut',duration: 0.4}}
+                    className="flex lg:flex-row flex-col">
                         {
                             data.length !== 0 ?
                             data?.map((item: { id: number; image: string, event_name: string; location: string; }, index: React.Key | null | undefined) => (
                                 <CardConcert imageUrl={item.image} key={index} id={item.id} name={item.event_name} time={'2022-06-20'} place={item.location} />
                             ))
                             :
-                            <div className="bg-white p-5 h-fit rounded-lg">
+                            <div className="bg-white p-5 h-fit rounded-lg md:w-[400px] w-full md:h-[460px]">
                                 <InstagramLoader/>
                             </div>
                         }
-                    </div>
+                    </motion.div>
                 </div>
             </div>
             {/* <Button content="Logout" onClick={handleLogout} >Loogut</Button> */}
