@@ -1,12 +1,9 @@
 import Image from "next/image";
 import AppLayout from "../../components/layout/AppLayout";
 import CardResult from "../../components/result/CardResult";
-import JustinBieberImage from "../../images/justin_bieber.png";
-import StadiumImage from "../../images/concert_stadium.png";
 import Input from "../../components/input/Input";
 import Select from "../../components/dropdown/Select";
 import Button from "../../components/button/Button";
-import Metamask from "../../images/metamask_icon.svg";
 import detectEthereumProvider from "@metamask/detect-provider";
 import React from "react";
 import { ethers } from "ethers";
@@ -80,7 +77,7 @@ const SelectedTicket = () => {
         <AppLayout>
             <div className="jumbotron py-16 bg-[#19083D] text-white p-5 flex items-center flex-col">
                 <div className="jumbotron pt-10 bg-[#19083D] text-white p-0 flex items-center flex-col lg:flex-row justify-between">
-                    <Image src={JustinBieberImage} alt="pic" width={400} height={250} />
+                    <Image src="/images/justin_bieber.png" alt="pic" width={400} height={250} />
                     <div className="lg:w-1/2">
                         <h1 className="md:text-2xl text-3xl font-semibold mt-5 lg:mt-5 mb-5 lg:leading-[30px] leading-[40px] font-poppins">Justin Bieber - Justice World Tour 2022 Jakarta</h1>
                         <div className="md:text-lg font-semibold mt-5 lg:mt-5 mb-2 lg:leading-[30px] leading-[40px] font-poppins">
@@ -90,11 +87,8 @@ const SelectedTicket = () => {
                     </div>
                 </div>
             </div>
-            <div>
-                Balance : {userBalance} ETH
-            </div>
             <div className="lg:w-[90%] p-5 min-h-screen mx-auto flex items-center justify-between md:flex-row flex-col">
-                <Image src={StadiumImage} width={400} height={400} />
+                <img src="/images/concert_stadium.png" className="w-[400px]" />
                 <form className="bg-primary md:p-10 p-6 text-white rounded-xl md:w-1/2 md:my-0 my-20 min-w-[320px]" onSubmit={handleSubmit}>
                     <h1 className="font-bold text-2xl mb-8">Select Ticket</h1>
                     <div className="flex flex-col">
@@ -107,9 +101,9 @@ const SelectedTicket = () => {
                         </div>
 
                         <div className="mt-5">
-                            <Button content="" type="button" className="bg-white w-full text-black flex items-center rounded-3xl py-0 md:flex-row flex-col">
+                            <Button content="" type="button" className="bg-white w-full text-black flex items-center rounded-3xl py-0 md:flex-row flex-col p-3">
                                 <div>
-                                    <Image src={Metamask} width={50} />
+                                    <img src="/images/metamask_icon.svg" className="w-[50px]" />
                                 </div>
                                 <p className="-mt-[5px] font-bold md:ml-5">Connect metamask wallet</p>
                             </Button>
@@ -130,7 +124,7 @@ const SelectedTicket = () => {
                                 <h5 className="text-2xl">ETH. 5</h5>
                             </div>
                             <Link href="/payment/payment-method" className="md:mt-0 mt-5">
-                                <Button content="" className="bg-white text-black rounded-xl font-semibold font-poppins">Buy Now</Button>
+                                <Button content="" className="bg-white text-black rounded-xl font-semibold font-poppins p-3">Buy Now</Button>
                             </Link>
                         </div>
                     </div>

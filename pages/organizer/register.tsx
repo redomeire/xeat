@@ -2,8 +2,8 @@ import React from "react";
 import AppLayout from "../../components/layout/AppLayout";
 import axios from 'axios';
 import Button from "../../components/button/Button";
-import Mail from "../../images/mail_icon.png";
-import Password from "../../images/password_icon.png";
+import Mail from "/images/mail_icon.png";
+import Password from "/images/password_icon.png";
 import Input from "../../components/input/Input";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -57,12 +57,12 @@ const Register = () => {
                     </div>
                     <div className="flex flex-col items-center">
                         <div className="my-5 w-full">
-                            <Input type="email" className="border rounded-2xl w-full" onChange={(e) => setEmail(e.target.value)} placeholder="masukkan email anda" beginningIcon={<Image src={Mail} alt="email" className="w-[10px]" width={'25px'} height={'20px'} />} required />
+                            <Input type="email" className="border rounded-2xl w-full" onChange={(e) => setEmail(e.target.value)} placeholder="masukkan email anda" beginningIcon={<img src="/images/mail_icon.png" alt="email" className="w-[24px]" />} required />
                         </div>
                         <div className="my-5 w-full">
-                            <Input type="password" className="border rounded-2xl w-full" onChange={(e) => setPassword(e.target.value)} placeholder="masukkan password anda" beginningIcon={<Image src={Password} alt="email" className="w-[10px]" width={'25px'} height={'20px'} />} required />
+                            <Input type="password" className="border rounded-2xl w-full" onChange={(e) => setPassword(e.target.value)} placeholder="masukkan password anda" beginningIcon={<img src="/images/password_icon.png" alt="email" className="w-[24px]" />} required />
                         </div>
-                        <Button content="Submit" type="submit" className="bg-[#19083D] text-white rounded-full w-[50%] flex items-center justify-center" >Submit</Button>
+                        <Button content="Submit" type="submit" className="bg-[#19083D] text-white rounded-full w-[50%] flex items-center justify-center p-3" >Submit</Button>
                     </div>
                     <div className="mt-10">
                         <hr />
