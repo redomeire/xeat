@@ -2,7 +2,7 @@ import Image from "next/image";
 import Button from "../components/button/Button";
 import Input from "../components/input/Input";
 import AppLayout from "../components/layout/AppLayout";
-import JumbotronImageSVG from "../images/jumbotron_image.svg";
+import JumbotronImageSVG from "/images/jumbotron_image.svg";
 import styled from "styled-components";
 import CardEvent from "../components/home/CardEvent";
 import { motion } from "framer-motion";
@@ -36,7 +36,7 @@ const Dashboard = () => {
                     <p className="mb-10">An NFT event ticketing marketplace help eliminating fraud and reducing the impact of scalping.</p>
                     <form onSubmit={handleSearch}>
                         <Input type="text" className='p-3 rounded-xl text-slate-700 w-full pr-[100px] focus:ring-4 focus:ring-slate-400' placeholder="Find ticket" endIcon={
-                            <Button content="" className="text-slate-500 w-[100%] bg-[#273568] rounded-lg">
+                            <Button content="" className="text-slate-500 w-[100%] bg-[#273568] rounded-lg p-2 px-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                                 </svg>
@@ -50,7 +50,7 @@ const Dashboard = () => {
                 animate={{x: 0}}
                 transition={{duration: 0.3, ease: 'easeInOut'}}
                 >
-                <CustomImage src={JumbotronImageSVG} alt="pic" className="md:w-1/2" />
+                <img src="/images/jumbotron_image.svg" alt="pic" className="md:w-[700px]" />
                 </motion.div>
             </div>
             {/* <Button content="Logout" onClick={handleLogout} >Loogut</Button> */}

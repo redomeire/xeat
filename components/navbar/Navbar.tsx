@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import XeatLogo from "../../images/xeat_logo.png";
 import React from "react";
 import Button from "../button/Button";
 import Image from "next/image";
@@ -29,6 +28,7 @@ interface Props {
 const Navbar = ({ isAuthenticated }: Props) => {
     const [isVisible, setIsVisible] = React.useState(false);
     const [isSearchBarExist, setIsSearchBarExist] = React.useState(false);
+    const [isLinkExist, setIsLinkExist] = React.useState(true);
     const route = useRouter();
 
     React.useEffect(() => {
@@ -36,7 +36,11 @@ const Navbar = ({ isAuthenticated }: Props) => {
     }, [])
 
     const checkRoutes = () => {
-        const routeList = ["/result", "/concert", "/profile", "/check-in", "/concert/details"];
+        const routeList = ["/result", "/concert", "/profile", "/check-in", "/concert/details", `/concert/${route.query.id}/details`, '/concert/selected-ticket'];
+        const emptyNavbar = ["/organizer/login", "/organizer/register", "/check-ticket"];
+        
+        if(emptyNavbar.includes(window.location.pathname))
+            setIsLinkExist(false);
 
         if (routeList.includes(window.location.pathname))
             setIsSearchBarExist(true);
@@ -49,52 +53,64 @@ const Navbar = ({ isAuthenticated }: Props) => {
 
     return (
         <>
-            <div className="md:flex fixed top-0 w-full hidden items-center justify-between bg-[#19083D] py-1 px-4 z-40">
+            <div className="lg:flex fixed top-0 w-full hidden items-center justify-between bg-[#19083D] py-1 px-4 z-50">
                 <div className="flex items-center">
                     <div className="text-white">
                         {/* <img src={XeatLogo} alt="logo" className="w-[150px]" /> */}
                         <div className="cursor-pointer">
-                        <Link href='/'>
-                            <Image src={XeatLogo} alt="pic" width={150} height={80} />
-                        </Link>
+                            <Link href='/'>
+                                <img src="/images/xeat_logo.png" alt="pic" width={150} height={80} />
+                            </Link>
                         </div>
                     </div>
                     <div className="ml-10">
                         <ul className="flex items-center">
                             {
-                                !isSearchBarExist ?
+                                !isSearchBarExist && isLinkExist ?
                                     navbarData.map((item, index) => (
                                         <li className="mx-5 text-white" key={index}>
                                             <Link href={item.link}>{item.name}</Link>
                                         </li>
                                     )) :
+                                    isSearchBarExist && isLinkExist ?
                                     <Input type="text" className="p-3 rounded-xl text-slate-700 w-[400px] pr-[100px] focus:ring-4 focus:ring-slate-400" placeholder="cari tiket yang anda inginkan" endIcon={
-                                        <Button type="submit" content="" className="text-slate-500 w-[100%] bg-[#273568] rounded-lg">
+                                        <Button type="submit" content="" className="text-slate-500 w-[100%] bg-[#273568] rounded-lg p-2 px-3">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                                             </svg>
                                         </Button>
                                     } />
+                                    :
+                                    <></>
                             }
                         </ul>
                     </div>
                 </div>
                 {
                     isAuthenticated ?
-                        <Button content="Logout" className="bg-white text-black rounded-xl" onClick={handleLogout} >Logout</Button>
+                        <Button content="Logout" className="p-3 bg-white text-black rounded-xl" onClick={handleLogout} >Logout</Button>
                         :
-                        <Link href="/organizer/login">
-                            <Button content="Sign in" className="bg-white text-black rounded-xl" >Sign in</Button>
-                        </Link>
+                        isLinkExist && !isAuthenticated &&
+                        <div className="flex items-center">
+                            <Link href="/organizer/make-event">
+                                <div className="mr-10 flex items-center cursor-pointer hover:brightness-90 transition duration-300">
+                                    <img src="/images/buat_event.svg" width={30} />
+                                    <p className="ml-2 font-semibold text-white ">Buat Event</p>
+                                </div>
+                            </Link>
+                            <Link href="/organizer/login">
+                                <Button content="Sign in" className="w-fit bg-white text-black rounded-lg  px-5 py-3" >Connect Wallet</Button>
+                            </Link>
+                        </div>
                 }
             </div>
-            <div className="responsived fixed top-0 w-full flex items-center justify-between bg-[#19083D] py-1 px-4 md:hidden z-40">
+            <div className="responsived fixed top-0 w-full flex items-center justify-between bg-[#19083D] py-1 px-4 lg:hidden z-50">
                 <div className="flex items-center justify-between w-full">
                     <div className="flex items-center">
                         <div className="text-white cursor-pointer">
                             {/* <img src={'../../images/xeat_logo.png'} alt="logo" className="w-[150px]" /> */}
                             <Link href="/">
-                                <Image src={XeatLogo} alt="pic" width={150} height={80} />
+                                <img src="/images/xeat_logo.png" alt="pic" width={150} height={80} />
                             </Link>
                         </div>
                     </div>
@@ -107,7 +123,7 @@ const Navbar = ({ isAuthenticated }: Props) => {
                 <div className={`px-5 py-5 absolute top-20 bg-[#19083D] w-full left-0 ${isVisible ? '' : 'hidden'}`}>
                     <ul className="flex items-start flex-col mb-5">
                         {
-
+                            isLinkExist &&
                             navbarData.map((item, index) => (
                                 <Link href={item.link} className="" key={index}>
                                     <div className="mr-5 hover:bg-white hover:text-[#19083D] text-white w-full p-4 my-2 transition duration-300">
@@ -119,7 +135,7 @@ const Navbar = ({ isAuthenticated }: Props) => {
                         {
                             isSearchBarExist &&
                             <Input type="text" className="p-3 rounded-xl text-slate-700 w-full pr-[100px] focus:ring-4 focus:ring-slate-400 relative" placeholder="cari tiket yang anda inginkan" endIcon={
-                                <Button type="submit" content="" className="text-slate-500 w-[100%] bg-[#273568] rounded-lg">
+                                <Button type="submit" content="" className="text-slate-500 w-[100%] bg-[#273568] rounded-lg p-2 px-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                                     </svg>
@@ -136,9 +152,18 @@ const Navbar = ({ isAuthenticated }: Props) => {
                                 </svg>
                             </Button>
                             :
-                            <Link href="/organizer/login">
-                                <Button content="Sign in" className="bg-white text-black rounded-lg" >Sign in</Button>
-                            </Link>
+                            isLinkExist &&
+                            <div className="flex items-center w-full justify-center">
+                                <Link href="/organizer/make-event">
+                                    <div className="mr-5 flex items-center lg:mb-3">
+                                        <img src="/images/buat_event.svg" width={30} />
+                                        <p className="ml-2 font-semibold text-white">Buat Event</p>
+                                    </div>
+                                </Link>
+                                <Link href="/organizer/login">
+                                    <Button content="Sign in" className="w-fit bg-white text-black rounded-lg  px-5 py-3" >Connect Wallet</Button>
+                                </Link>
+                            </div>
                     }
                 </div>
             </div>

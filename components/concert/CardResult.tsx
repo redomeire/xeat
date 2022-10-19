@@ -30,11 +30,11 @@ const CardResult = ({ event_name, event_date, event_time, location, line_up, tic
                 </div>
                 <div className="lg:mb-0 mb-5">
                     <p className="text-xl font-semibold font-poppins">{event_name}</p>
-                    <Button content="" className={`${ticket_type === 'VVIP' ? 'bg-vvip' : ticket_type === 'VIP' ? 'bg-vip' : 'border border-slate-500 text-slate-500'} mt-2 rounded-lg disabled:cursor-not-allowed text-white`} disabled>{ticket_type}</Button>
+                    <Button content="" className={`${ticket_type === 'VVIP' ? 'bg-vvip' : ticket_type === 'VIP' ? 'bg-vip' : 'border border-slate-500 text-slate-500'} py-2 px-3 mt-2 rounded-lg disabled:cursor-not-allowed text-white`} disabled>{ticket_type}</Button>
                 </div>
                 <div>
                     <Link href="/concert/selected-ticket">
-                        <Button content="" className="bg-primary text-white rounded-lg" >Lihat Tiket</Button>
+                        <Button content="" className="bg-primary text-white rounded-lg p-3" >Lihat Tiket</Button>
                     </Link>
                 </div>
 

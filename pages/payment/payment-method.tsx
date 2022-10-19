@@ -1,11 +1,7 @@
 import Image from "next/image";
 import AppLayout from "../../components/layout/AppLayout";
-import Visa from "../../images/visa.svg";
-import MasterCard from "../../images/master_card.svg";
-import LinkAja from "../../images/link_aja.svg";
-import Gopay from "../../images/gopay.svg";
 import Button from "../../components/button/Button";
-import Metamask from "../../images/metamask_icon.svg";
+import Metamask from "/images/metamask_icon.svg";
 import React from "react";
 import { ethers } from "ethers";
 
@@ -57,28 +53,28 @@ const PaymentMethod = () => {
                     <h1 className="underline font-semibold font-poppins text-black text-center">Choose Payment Method</h1> 
                     <div className="crypto-method flex flex-col items-center my-5">
                         <h2 className="text-black mb-5">Crypto Method</h2>
-                        <Button content="" type="button" className="border border-primary bg-white w-full text-black flex items-center rounded-3xl py-0 md:flex-row flex-col" onClick={initializeMetamask}>
+                        <Button content="" type="button" className="border border-primary bg-white w-full text-black flex items-center rounded-3xl md:flex-row flex-col p-5" onClick={initializeMetamask}>
                             <div>
-                                <Image src={Metamask} width={50} />
+                                <img src="/images/metamask_icon.svg" className="w-[50px]" />
                             </div>
                             <p className="-mt-[5px] font-semibold md:ml-5">Connect metamask wallet</p>
                         </Button>
                     </div>
                     <div className="crypto-method flex flex-col items-center my-5">
                         <h2 className="text-black mb-5">Other Payment Method</h2>
-                        <Button content="" type="button" className="border border-primary bg-white w-full text-black flex items-center rounded-3xl py-0 md:flex-row flex-col" onClick={handleCreditCard}>
-                            <div>
-                                <Image src={Visa} width={50} />
-                                <Image src={MasterCard} width={50} />
+                        <Button content="" type="button" className="border border-primary bg-white w-full text-black flex items-center rounded-3xl md:flex-row flex-col p-5" onClick={handleCreditCard}>
+                            <div className="flex items-center">
+                                <img src="/images/visa.svg" className="w-[50px]" />
+                                <img src="/images/master_card.svg" className="w-[50px]" />
                             </div>
                             <p className="-mt-[5px] font-semibold md:ml-5">Credit Card</p>
                         </Button>
                     </div>
                     <div className="crypto-method flex flex-col items-center my-5">
-                        <Button content="" type="button" className="border border-primary bg-white w-full text-black flex items-center rounded-3xl py-0 md:flex-row flex-col" onClick={handleDigitalMoney}>
+                        <Button content="" type="button" className="border border-primary bg-white w-full text-black flex items-center rounded-3xl md:flex-row flex-col p-4" onClick={handleDigitalMoney}>
                             <div className="flex items-center">
-                                <Image src={LinkAja} width={50} />
-                                <Image src={Gopay} width={50} />
+                                <img src="/images/link_aja.svg" className="w-[30px]" />
+                                <img src="/images/gopay.svg" className="w-[50px] ml-2" />
                             </div>
                             <p className="-mt-[5px] font-semibold md:ml-5">Digital Money</p>
                         </Button>
