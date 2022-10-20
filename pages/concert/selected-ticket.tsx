@@ -8,6 +8,7 @@ import detectEthereumProvider from "@metamask/detect-provider";
 import React from "react";
 import { ethers } from "ethers";
 import Link from "next/link";
+import axios from "axios";
 
 const resultData = [
     {
@@ -30,12 +31,36 @@ const resultData = [
     },
 ]
 
+interface Props {
+    [x: string]: any;
+}
+
 const SelectedTicket = () => {
     const [defaultAccount, setDefaultAccount] = React.useState('');
     const [userBalance, setUserBalance] = React.useState('');
+    const [items, setItems] = React.useState<Props>({});
+    const [pageId, setPageId] = React.useState<string | string[] | undefined>('');
 
     const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
+    }
+
+    const getData = () => {
+        axios.get('https://xeat-website-api.herokuapp.com/public/api/event')
+            .then((res) => {
+                if (res.data !== null) {
+                    res.data.forEach((element: any) => {
+                        if (typeof pageId === 'string')
+                            if (element.id == pageId)
+                                setItems(element)
+                    });
+                }
+
+                console.log(items)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 
     // const initializeMetamask = async () => {

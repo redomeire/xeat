@@ -58,8 +58,6 @@ const Details = () => {
                                 setItems(element)
                     });
                 }
-
-                console.log(items)
             })
             .catch((err) => {
                 console.log(err);
@@ -111,7 +109,7 @@ const Details = () => {
 
                 {
                     splitArray(items.ticket_type).map((item, index) => (
-                         <CardResult key={index} line_up={splitArray(items.line_up)} location={items.location} event_name={items.event_name} event_date={items.event_date} event_time={items.event_time} ticket_type={item} />
+                         <CardResult key={index} pageId={pageId} line_up={splitArray(items.line_up)} location={items.location} event_name={items.event_name} event_date={items.event_date} event_time={items.event_time} ticket_type={item} />
                     ))
                 } 
             </div>
