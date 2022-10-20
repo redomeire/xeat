@@ -8,11 +8,26 @@ interface Props {
     event_time: null | string,
     location: string,
     line_up: Array<string>,
-    ticket_type: string
+    ticket_type: string,
+    pageId: string | string[] | undefined
 }
 
-const CardResult = ({ event_name, event_date, event_time, location, line_up, ticket_type }: Props) => {
+const CardResult = ({ pageId, event_name, event_date, event_time, location, line_up, ticket_type }: Props) => {
     const [isOpen, setIsOpen] = React.useState(false);
+    const [ticketId, setTicketId] = React.useState(0);
+
+    React.useEffect(() => {
+        checkTicketType();
+    }, [])
+
+    const checkTicketType = () => {
+        if (ticket_type === 'VIP')
+            setTicketId(0)
+        else if (ticket_type === 'VVIP')
+            setTicketId(1)
+        else if (ticket_type === 'REGULAR')
+            setTicketId(2)
+    }
 
     return (
         <div className="border-b-2">
@@ -33,7 +48,7 @@ const CardResult = ({ event_name, event_date, event_time, location, line_up, tic
                     <Button content="" className={`${ticket_type === 'VVIP' ? 'bg-vvip' : ticket_type === 'VIP' ? 'bg-vip' : 'border border-slate-500 text-slate-500'} py-2 px-3 mt-2 rounded-lg disabled:cursor-not-allowed text-white`} disabled>{ticket_type}</Button>
                 </div>
                 <div>
-                    <Link href="/concert/selected-ticket">
+                    <Link href={`/concert/selected-ticket/${pageId}/${ticketId}`}>
                         <Button content="" className="bg-primary text-white rounded-lg p-3" >Lihat Tiket</Button>
                     </Link>
                 </div>
@@ -57,7 +72,7 @@ const CardResult = ({ event_name, event_date, event_time, location, line_up, tic
                         }
 
                     </div>
-                    
+
                 </div>
                 <div className={`${!isOpen && 'hidden'} lg:ml-10`}>
                     <div className="my-2">
