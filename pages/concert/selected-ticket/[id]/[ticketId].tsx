@@ -7,19 +7,32 @@ import Input from "../../../../components/input/Input";
 import Swal from "sweetalert2";
 import { formatString } from "../../../../utils/formatter";
 import { SkeletonLoader } from "../../../../components/loader/SkeletonLoader";
+import { ChainId, 
+    ThirdwebProvider,
+    useContractMetadata,
+    useActiveClaimCondition,
+    useNFT,
+    Web3Button,
+    useContract, } from "@thirdweb-dev/react";
+import { BigNumber } from "ethers";
+import { useState } from "react";
 
 interface Props {
     [x: string]: any;
 }
+
+const myEditionDropContractAddress ="0x5dA2C4B41C467a17f91Fa96B90E912FF35253d18";
+
+const activeChainId = ChainId.Mumbai;
 
 const SelectedTicket = () => {
     const [pageId, setPageId] = React.useState<string | string[] | undefined>('');
     const [items, setItems] = React.useState<Props>({});
     const [ticketType, setTicketType] = React.useState<string | string[] | undefined>('');
     const [ticketAmount, setTicketAmount] = React.useState<string>('1');
+    const [tokenId, setToken] = useState<number>(0);
 
     const router = useRouter();
-
     React.useEffect(() => {
         setPageId(router.query.id)
         checkTicketType()
@@ -43,29 +56,35 @@ const SelectedTicket = () => {
     }, [ticketAmount])
 
     const checkTicketType = () => {
-        if (router.query.ticketId === '0')
+        if (router.query.ticketId === '0'){
             setTicketType('VIP')
-        else if (router.query.ticketId === '1')
+            setToken(0)
+        }
+        else if (router.query.ticketId === '1'){
             setTicketType('VVIP')
-        else if (router.query.ticketId === '2')
+            setToken(1)
+        }
+        else if (router.query.ticketId === '2'){
             setTicketType('REGULAR')
+            setToken(2)
+        }
     }
+    
+    // const handleSubmit = (e: { preventDefault: () => void; }) => {
+    //     e.preventDefault();
+    //     console.log(ticketAmount, router.query.ticketId)
 
-    const handleSubmit = (e: { preventDefault: () => void; }) => {
-        e.preventDefault();
-        console.log(ticketAmount, router.query.ticketId)
+    //     Swal.fire({
+    //         icon: 'info',
+    //         text: "We're processing your request",
+    //         showConfirmButton: false,
+    //         timer: 2000,
+    //     });
 
-        Swal.fire({
-            icon: 'info',
-            text: "We're processing your request",
-            showConfirmButton: false,
-            timer: 2000,
-        });
-
-        setTimeout(() => {
-            router.push('/payment/payment-method')
-        }, 2000);
-    }
+    //     setTimeout(() => {
+    //         router.push('/payment/payment-method')
+    //     }, 2000);
+    // }
 
     const getData = () => {
         axios.get('https://xeat-website-api.herokuapp.com/public/api/event')
@@ -86,6 +105,7 @@ const SelectedTicket = () => {
     }
 
     return (
+        <ThirdwebProvider desiredChainId={activeChainId}>
         <AppLayout>
             <div className="jumbotron py-16 bg-[#19083D] text-white p-5 flex items-center flex-col">
                 <div className="jumbotron pt-10 bg-[#19083D] text-white p-0 flex items-center flex-col lg:flex-row md:justify-around justify-between w-full">
@@ -114,7 +134,7 @@ const SelectedTicket = () => {
             </div>
             <div className="lg:w-[90%] p-5 min-h-screen mx-auto flex items-center justify-between md:flex-row flex-col">
                 <img src={formatString(items.image_line_up)} className="w-[400px]" />
-                <form className="bg-primary md:p-10 p-6 text-white rounded-xl md:w-1/2 md:my-0 my-20 min-w-[320px]" onSubmit={handleSubmit}>
+                <form className="bg-primary md:p-10 p-6 text-white rounded-xl md:w-1/2 md:my-0 my-20 min-w-[320px]">
                     <h1 className="font-bold text-2xl mb-8">Select Ticket</h1>
                     <div className="flex flex-col">
                         <div className="my-3">
@@ -160,14 +180,24 @@ const SelectedTicket = () => {
                                 <h3 className="font-bold text-2xl">Total Cost</h3>
                                 <h5 className="text-2xl">ETH. 5</h5>
                             </div>
-                            {/* <Link href="/payment/payment-method" className="md:mt-0 mt-5"> */}
-                            <Button content="" className="bg-white text-black rounded-xl font-semibold font-poppins p-3">Buy Now</Button>
-                            {/* </Link> */}
+                            <Web3Button
+                                contractAddress={myEditionDropContractAddress}
+                                action={async (contract) =>
+                                await contract.erc1155.claim(tokenId, ticketAmount)
+                                }
+                                onSuccess={(result) => alert("Claimed!")}
+                                onError={(error) => alert(error?.message)}
+                                accentColor="#82A8F4"
+                                colorMode="light"
+                            >
+                                Mint
+                            </Web3Button>
                         </div>
                     </div>
                 </form>
             </div>
         </AppLayout>
+        </ThirdwebProvider>
     );
 }
 

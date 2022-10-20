@@ -114,7 +114,7 @@ const SelectedTicket = () => {
             </div>
             <div className="lg:w-[90%] p-5 min-h-screen mx-auto flex items-center justify-between md:flex-row flex-col">
                 <img src="/images/concert_stadium.png" className="w-[400px]" />
-                <form className="bg-primary md:p-10 p-6 text-white rounded-xl md:w-1/2 md:my-0 my-20 min-w-[320px]" onSubmit={handleSubmit}>
+                <form className="bg-primary md:p-10 p-6 text-white rounded-xl md:w-1/2 md:my-0 my-20 min-w-[320px]">
                     <h1 className="font-bold text-2xl mb-8">Select Ticket</h1>
                     <div className="flex flex-col">
                         <div className="my-3">
@@ -148,9 +148,9 @@ const SelectedTicket = () => {
                                 <h3 className="font-bold text-2xl">Total Cost</h3>
                                 <h5 className="text-2xl">ETH. 5</h5>
                             </div>
-                            <Link href="/payment/payment-method" className="md:mt-0 mt-5">
+                            {/* <Link href="/payment/payment-method" className="md:mt-0 mt-5">
                                 <Button content="" className="bg-white text-black rounded-xl font-semibold font-poppins p-3">Buy Now</Button>
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                 </form>
