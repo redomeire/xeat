@@ -29,7 +29,7 @@ const SelectedTicket = () => {
     const [pageId, setPageId] = React.useState<string | string[] | undefined>('');
     const [items, setItems] = React.useState<Props>({});
     const [ticketType, setTicketType] = React.useState<string | string[] | undefined>('');
-    const [ticketAmount, setTicketAmount] = React.useState<string>('1');
+    const [ticketAmount, setTicketAmount] = React.useState<number>(1);
     const [tokenId, setToken] = useState<number>(0);
 
     const router = useRouter();
@@ -43,16 +43,17 @@ const SelectedTicket = () => {
     }, [pageId])
 
     React.useEffect(() => {
-        if (parseInt(ticketAmount) < 1) {
+        if (ticketAmount < 1) {
             Swal.fire({
                 icon: 'info',
                 text: "input cannot be less than one",
                 showConfirmButton: false,
                 timer: 2000,
             });
+
+            setTicketAmount(1);
         }
 
-        setTicketAmount('1');
     }, [ticketAmount])
 
     const checkTicketType = () => {
@@ -72,7 +73,7 @@ const SelectedTicket = () => {
     
     // const handleSubmit = (e: { preventDefault: () => void; }) => {
     //     e.preventDefault();
-    //     console.log(ticketAmount, router.query.ticketId)
+    //     console.log(ticketAmount, router.query.ticketId, items.token)
 
     //     Swal.fire({
     //         icon: 'info',
@@ -148,12 +149,10 @@ const SelectedTicket = () => {
 
                         <div className="my-3">
                             <Input type="number"
-                                // defaultValue={ticketType} 
-                                onChange={(e) => setTicketAmount(e.target.value)}
-                                className="text-black rounded-2xl w-full cursor-not-allowed bg-white"
+                                onChange={(e) => setTicketAmount(parseInt(e.target.value))}
+                                className="text-black rounded-2xl w-full cursor-default bg-white"
                                 min={1}
-                                defaultValue={ticketAmount}
-                            // value={ticketAmount}
+                                defaultValue={ticketAmount.toString()}
                             />
                         </div>
 
@@ -181,7 +180,7 @@ const SelectedTicket = () => {
                                 <h5 className="text-2xl">ETH. 5</h5>
                             </div>
                             <Web3Button
-                                contractAddress={myEditionDropContractAddress}
+                                contractAddress={items.token}
                                 action={async (contract) =>
                                 await contract.erc1155.claim(tokenId, ticketAmount)
                                 }
@@ -189,6 +188,7 @@ const SelectedTicket = () => {
                                 onError={(error) => alert(error?.message)}
                                 accentColor="#82A8F4"
                                 colorMode="light"
+                                className="md:mt-0 mt-5"
                             >
                                 Mint
                             </Web3Button>
