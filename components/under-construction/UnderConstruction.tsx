@@ -10,7 +10,7 @@ const UnderConstruction = () => {
                     <img src="/images/under-construction/under-construction.svg" className="w-[400px]" />
                     <div className="md:ml-5 mt-10 font-poppins md:block flex md:items-start items-center md:flex-row flex-col">
                         <p className="text-primary text-2xl font-bold mb-3">Web Under Construction</p>
-                        <p className="text-primary text-center md:text-start">The resource you're seeking for is under construction. </p>
+                        <p className="text-primary text-center md:text-start">The resource you&apos;re seeking for is under construction. </p>
                         <p className="text-primary text-center md:text-start mt-2">Come back later </p>
                         <Link href='/'>
                             <Button

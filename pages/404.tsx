@@ -10,7 +10,7 @@ const NotFound = () => {
                     <img src="/images/not-found/not-found.svg" className="w-[200px]" />
                     <div className="md:ml-5 mt-10 font-poppins md:block flex md:items-start items-center md:flex-row flex-col">
                         <p className="text-primary text-2xl font-bold mb-3">404 Not Found</p>
-                        <p className="text-primary text-center md:text-start">The resource you're seeking for doesn't exist.</p>
+                        <p className="text-primary text-center md:text-start">The resource you&apos;re seeking for doesn&apos;t exist.</p>
                         <Link href='/'>
                             <Button
                                 content=""
