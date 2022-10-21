@@ -3,7 +3,7 @@ import React, { MouseEventHandler } from 'react';
 interface Props {
     content: string,
     className?: string,
-    beginningIcon?: Element,
+    beginningIcon?: React.ReactNode,
     endIcon?: React.ReactNode,
     type?: "button" | "submit" | "reset" | undefined,
     onClick?: MouseEventHandler<HTMLButtonElement>,
