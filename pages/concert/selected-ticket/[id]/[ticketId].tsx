@@ -71,21 +71,11 @@ const SelectedTicket = () => {
         }
     }
     
-    // const handleSubmit = (e: { preventDefault: () => void; }) => {
-    //     e.preventDefault();
-    //     console.log(ticketAmount, router.query.ticketId, items.token)
+    const handleSubmit = (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
+        // next code goes here
 
-    //     Swal.fire({
-    //         icon: 'info',
-    //         text: "We're processing your request",
-    //         showConfirmButton: false,
-    //         timer: 2000,
-    //     });
-
-    //     setTimeout(() => {
-    //         router.push('/payment/payment-method')
-    //     }, 2000);
-    // }
+    }
 
     const getData = () => {
         axios.get('https://xeat-website-api.herokuapp.com/public/api/event')
@@ -97,8 +87,6 @@ const SelectedTicket = () => {
                                 setItems(element)
                     });
                 }
-
-                // console.log(items)
             })
             .catch((err) => {
                 console.log(err);
@@ -135,7 +123,7 @@ const SelectedTicket = () => {
             </div>
             <div className="lg:w-[90%] p-5 min-h-screen mx-auto flex items-center justify-between md:flex-row flex-col">
                 <img src={formatString(items.image_line_up)} className="w-[400px]" />
-                <form className="bg-primary md:p-10 p-6 text-white rounded-xl md:w-1/2 md:my-0 my-20 min-w-[320px]">
+                <form onSubmit={handleSubmit} className="bg-primary md:p-10 p-6 text-white rounded-xl md:w-1/2 md:my-0 my-20 min-w-[320px]">
                     <h1 className="font-bold text-2xl mb-8">Select Ticket</h1>
                     <div className="flex flex-col">
                         <div className="my-3">
