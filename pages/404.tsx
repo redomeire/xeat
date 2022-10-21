@@ -1,17 +1,16 @@
 import Link from "next/link";
-import Button from "../button/Button";
-import AppLayout from "../layout/AppLayout";
+import Button from "../components/button/Button";
+import AppLayout from "../components/layout/AppLayout"
 
-const UnderConstruction = () => {
-    return ( 
+const NotFound = () => {
+    return (
         <AppLayout>
             <div className="min-h-screen flex items-center justify-center">
                 <div className="mt-20 flex flex-col md:flex-row md:p-0 p-2 items-center">
-                    <img src="/images/under-construction/under-construction.svg" className="w-[400px]" />
+                    <img src="/images/not-found/not-found.svg" className="w-[200px]" />
                     <div className="md:ml-5 mt-10 font-poppins md:block flex md:items-start items-center md:flex-row flex-col">
-                        <p className="text-primary text-2xl font-bold mb-3">Web Under Construction</p>
-                        <p className="text-primary text-center md:text-start">The resource you're seeking for is under construction. </p>
-                        <p className="text-primary text-center md:text-start mt-2">Come back later </p>
+                        <p className="text-primary text-2xl font-bold mb-3">404 Not Found</p>
+                        <p className="text-primary text-center md:text-start">The resource you're seeking for doesn't exist.</p>
                         <Link href='/'>
                             <Button
                                 content=""
@@ -27,7 +26,7 @@ const UnderConstruction = () => {
                 </div>
             </div>
         </AppLayout>
-     );
+    );
 }
- 
-export default UnderConstruction;
+
+export default NotFound;
