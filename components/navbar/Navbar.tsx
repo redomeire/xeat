@@ -38,8 +38,8 @@ const Navbar = ({ isAuthenticated }: Props) => {
     const checkRoutes = () => {
         const routeList = ["/result", "/concert", "/profile", "/check-in", "/concert/details", `/concert/${route.query.id}/details`, '/concert/selected-ticket'];
         const emptyNavbar = ["/organizer/login", "/organizer/register", "/check-ticket"];
-        
-        if(emptyNavbar.includes(window.location.pathname))
+
+        if (emptyNavbar.includes(window.location.pathname))
             setIsLinkExist(false);
 
         if (routeList.includes(window.location.pathname))
@@ -73,15 +73,15 @@ const Navbar = ({ isAuthenticated }: Props) => {
                                         </li>
                                     )) :
                                     isSearchBarExist && isLinkExist ?
-                                    <Input type="text" className="p-3 rounded-xl text-slate-700 w-[400px] pr-[100px] focus:ring-4 focus:ring-slate-400" placeholder="cari tiket yang anda inginkan" endIcon={
-                                        <Button type="submit" content="" className="text-slate-500 w-[100%] bg-[#273568] rounded-lg p-2 px-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                                            </svg>
-                                        </Button>
-                                    } />
-                                    :
-                                    <></>
+                                        <Input type="text" className="p-3 rounded-xl text-slate-700 w-[400px] pr-[100px] focus:ring-4 focus:ring-slate-400" placeholder="cari tiket yang anda inginkan" endIcon={
+                                            <Button type="submit" content="" className="text-slate-500 w-[100%] bg-[#273568] rounded-lg p-2 px-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                                </svg>
+                                            </Button>
+                                        } />
+                                        :
+                                        <></>
                             }
                         </ul>
                     </div>
@@ -98,9 +98,7 @@ const Navbar = ({ isAuthenticated }: Props) => {
                                     <p className="ml-2 font-semibold text-white ">Buat Event</p>
                                 </div>
                             </Link>
-                            <Link href="/organizer/login">
-                                <Button content="Sign in" className="w-fit bg-white text-black rounded-lg  px-5 py-3" >Connect Wallet</Button>
-                            </Link>
+                            <Button content="Sign in" className="w-fit bg-white text-black rounded-lg  px-5 py-3" >Connect Wallet</Button>
                         </div>
                 }
             </div>
@@ -160,9 +158,7 @@ const Navbar = ({ isAuthenticated }: Props) => {
                                         <p className="ml-2 font-semibold text-white">Buat Event</p>
                                     </div>
                                 </Link>
-                                <Link href="/organizer/login">
-                                    <Button content="Sign in" className="w-fit bg-white text-black rounded-lg  px-5 py-3" >Connect Wallet</Button>
-                                </Link>
+                                <Button content="Sign in" className="w-fit bg-white text-black rounded-lg  px-5 py-3" >Connect Wallet</Button>
                             </div>
                     }
                 </div>
