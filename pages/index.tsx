@@ -10,6 +10,7 @@ import React from "react";
 import { SkeletonLoader } from "../components/loader/SkeletonLoader";
 import { Url } from "url";
 import Head from "next/head";
+import Link from "next/link";
 
 const CustomImage = styled(Image)`
     min-width: 300px;
@@ -75,16 +76,21 @@ const Dashboard = () => {
                 <div>
                     <h4 className="font-bold text-xl my-10">Categories</h4>
                     <div className="flex flex-col lg:flex-row p-2 flex-wrap">
-                        {
-                            Object.keys(data).length !== 0 ?
-                                data.map((item: { image: string, event_name: string, id: string }, index) => {
-                                    return (
-                                        <CardEvent image={item.image} title={item.event_name} id={item.id} key={index} />
-                                    )
-                                })
-                                :
-                                <SkeletonLoader />
-                        }
+                        <Link href={`/concert`}>
+                            <div className={`cursor-pointer rounded-lg relative bg-cover transition hover:brightness-75 lg:w-fit lg:m-2 lg:mx-10 lg:my-3 my-2 min-w-[200px] min-h-[100px] w-full`} style={{ backgroundImage: `url(/images/concert.svg)`, position: 'relative' }}>
+                                <p className="absolute left-5 bottom-3 font-bold text-white">Concert</p>
+                            </div>
+                        </Link>
+                        <Link href={`/sports`}>
+                            <div className={`cursor-pointer rounded-lg relative bg-cover transition hover:brightness-75 lg:w-fit lg:m-2 lg:mx-10 lg:my-3 my-2 min-w-[200px] min-h-[100px] w-full`} style={{ backgroundImage: `url(/images/sport.svg)`, position: 'relative' }}>
+                                <p className="absolute left-5 bottom-3 font-bold text-white">Sports</p>
+                            </div>
+                        </Link>
+                        <Link href={`/park`}>
+                            <div className={`cursor-pointer rounded-lg relative bg-cover transition hover:brightness-75 lg:w-fit lg:m-2 lg:mx-10 lg:my-3 my-2 min-w-[200px] min-h-[100px] w-full`} style={{ backgroundImage: `url(/images/park.svg)`, position: 'relative' }}>
+                                <p className="absolute left-5 bottom-3 font-bold text-white">Park</p>
+                            </div>
+                        </Link>
                     </div>
                 </div>
                 <div className="my-10">
@@ -93,15 +99,16 @@ const Dashboard = () => {
                         <div>
                             <h5 className="ml-1 font-bold text-lg my-5">Concert</h5>
                             <div className="flex flex-col lg:flex-row">
-                                <CardEvent title="not available" image="https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                                    id={""}
-                                />
-                                <CardEvent title="not available" image="https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                                    id={""}
-                                />
-                                <CardEvent title="not available" image="https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                                    id={""}
-                                />
+                                {
+                                    Object.keys(data).length !== 0 ?
+                                        data.map((item: { image: string, event_name: string, id: string }, index) => {
+                                            return (
+                                                <CardEvent image={item.image} title={item.event_name} id={item.id} key={index} />
+                                            )
+                                        })
+                                        :
+                                        <SkeletonLoader />
+                                }
                             </div>
                         </div>
                         <div>
