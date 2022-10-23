@@ -6,6 +6,7 @@ import AppLayout from "../../../components/layout/AppLayout";
 import { InstagramLoader, SkeletonLoader } from "../../../components/loader/SkeletonLoader";
 import CardResult from "../../../components/concert/CardResult";
 import { motion } from "framer-motion";
+import Head from "next/head";
 
 const resultData = [
     {
@@ -66,12 +67,12 @@ const Details = () => {
 
     return (
         <AppLayout>
+            <Head>
+                <title>Xeat - {items.event_name || 'concert'}</title>
+            </Head>
             <div className="jumbotron py-16 bg-[#19083D] text-white p-5 flex items-center flex-col">
                 <div className="md:w-[90%] jumbotron pt-20 bg-[#19083D] text-white p-5 flex items-center flex-col-reverse lg:flex-row justify-between">
-                    <motion.div
-                    initial={{x: -50}}
-                    animate={{x: 0}}
-                    transition={{duration: 0.3, ease: 'easeInOut'}}
+                    <div
                     className="lg:w-1/2">
                         {
                             Object.keys(items).length !== 0 ?
@@ -86,13 +87,9 @@ const Details = () => {
                         <Button content="" className="mt-20 px-5 border-b-4 border-b-white">
                             <p className="font-bold">Ticket</p>
                         </Button>
-                    </motion.div>
+                    </div>
                     {/* <Image src={items.image} alt="pic" width={400} height={250} /> */}
-                    <motion.div
-                    initial={{x: 50}}
-                    animate={{x: 0}}
-                    transition={{duration: 0.3, ease: 'easeInOut'}}
-                    >
+                    <div>
                     {
                         Object.keys(items).length === 0 ?
                             <div className="bg-white p-5 h-fit rounded-lg">
@@ -101,7 +98,7 @@ const Details = () => {
                             :
                             <img src={items.image} className="w-[400px]" />
                     }
-                    </motion.div>
+                    </div>
                 </div>
             </div>
             <div className="lg:w-[90%] md:p-5 p-2 min-h-screen mx-auto">

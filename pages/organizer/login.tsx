@@ -9,6 +9,7 @@ import Image from "next/image";
 import { Router, useRouter } from "next/router";
 import Swal from "sweetalert2";
 import Link from "next/link";
+import Head from "next/head";
 
 const Login = () => {
     const [email, setEmail] = React.useState('');
@@ -45,6 +46,9 @@ const Login = () => {
 
     return (
         <AppLayout>
+            <Head>
+                <title>Xeat - Login</title>
+            </Head>
             <div className="bg-[#19083D] pt-40 px-20 min-h-screen flex justify-between items-center lg:flex-row flex-col">
                 <h1 className="text-white font-bold text-5xl lg:w-1/2 w-full lg:mb-0 mb-10">Get Your First NFT Ticket!</h1>
                 <form onSubmit={handleSubmit} className="lg:w-1/2 w-[80%] min-w-[300px] p-10 rounded-xl bg-white lg:mb-0 mb-10">
