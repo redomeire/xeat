@@ -673,7 +673,7 @@
     elliptic "6.5.4"
     hash.js "1.1.7"
 
-"@ethersproject/solidity@5.7.0", "@ethersproject/solidity@^5.6.0":
+"@ethersproject/solidity@5.7.0", "@ethersproject/solidity@^5.7.0":
   version "5.7.0"
   resolved "https://registry.npmjs.org/@ethersproject/solidity/-/solidity-5.7.0.tgz"
   integrity sha512-HmabMd2Dt/raavyaGukF4XxizWKhKQ24DoLtdNbBmNKUOPqwjsKQSdV9GQtj9CBEea9DlzETlVER1gYeXXBGaA==
@@ -773,7 +773,7 @@
   dependencies:
     "@floating-ui/core" "^1.0.1"
 
-"@gnosis.pm/safe-core-sdk-types@^1.1.0", "@gnosis.pm/safe-core-sdk-types@^1.6.1":
+"@gnosis.pm/safe-core-sdk-types@^1.6.1":
   version "1.6.1"
   resolved "https://registry.npmjs.org/@gnosis.pm/safe-core-sdk-types/-/safe-core-sdk-types-1.6.1.tgz"
   integrity sha512-KRflubR/W2qVeRxavh2ALtXI6CyCCcyuL1olJAVn/xkZVYJJjvXn+5GxbRloJFIJrgFCNWYbHrO0sXtywP5Y1g==
@@ -784,51 +784,52 @@
     web3-core "^1.8.0"
     web3-utils "^1.8.0"
 
-"@gnosis.pm/safe-core-sdk-utils@^1.1.0":
+"@gnosis.pm/safe-core-sdk-utils@^1.4.1":
   version "1.4.1"
-  resolved "https://registry.npmjs.org/@gnosis.pm/safe-core-sdk-utils/-/safe-core-sdk-utils-1.4.1.tgz"
+  resolved "https://registry.yarnpkg.com/@gnosis.pm/safe-core-sdk-utils/-/safe-core-sdk-utils-1.4.1.tgz#c1c6d7fe78682a0090c47a24b1306c46a69d2e0d"
   integrity sha512-VrebOIw5ULOgTuV1hK4V0Wp1cg50Sw9urUYyBFnkI6kzL13f3ngGa5IUZ6O+HOOSNrO2mB+EEr09gWp5IN7ECA==
   dependencies:
     "@gnosis.pm/safe-core-sdk-types" "^1.6.1"
     semver "^7.3.7"
     web3-utils "^1.8.0"
 
-"@gnosis.pm/safe-core-sdk@2.1.0", "@gnosis.pm/safe-core-sdk@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@gnosis.pm/safe-core-sdk/-/safe-core-sdk-2.1.0.tgz"
-  integrity sha512-x2qrJsVxHsCVldh3rr/IljXetBNo5iHAfsxOj+C3QIkuq66lIs0p0njobl6e2x+A/xYCy+UIa8j8T39YUOJSJA==
+"@gnosis.pm/safe-core-sdk@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@gnosis.pm/safe-core-sdk/-/safe-core-sdk-3.1.1.tgz#d609e51fce387b8f12148965a3a053bd50b05b3d"
+  integrity sha512-RhU7ENNHvqD8SDGwUDSp8PirNzR48N7IlfAmFWSdhVqpqnCUW2Pzaxcn+e/E+rLx3GhZRvM2T6Cl98+JjWQwog==
   dependencies:
-    "@ethersproject/solidity" "^5.6.0"
-    "@gnosis.pm/safe-core-sdk-types" "^1.1.0"
-    "@gnosis.pm/safe-deployments" "^1.12.0"
-    ethereumjs-util "^7.1.4"
-    semver "^7.3.5"
-    web3-utils "^1.7.1"
+    "@ethersproject/solidity" "^5.7.0"
+    "@gnosis.pm/safe-core-sdk-types" "^1.6.1"
+    "@gnosis.pm/safe-deployments" "1.16.0"
+    ethereumjs-util "^7.1.5"
+    semver "^7.3.7"
+    web3-utils "^1.8.0"
 
-"@gnosis.pm/safe-deployments@1.16.0", "@gnosis.pm/safe-deployments@^1.12.0":
+"@gnosis.pm/safe-deployments@1.16.0":
   version "1.16.0"
   resolved "https://registry.npmjs.org/@gnosis.pm/safe-deployments/-/safe-deployments-1.16.0.tgz"
   integrity sha512-5Wakso6SiulstuZfz3gH6yME8Q50BT5dVxIfgWz4vzOmyyqmAVstMd0VIwyw6IDee0gU4mHKZjhD3UXPKEvRCw==
   dependencies:
     semver "^7.3.7"
 
-"@gnosis.pm/safe-ethers-adapters@0.1.0-alpha.9":
-  version "0.1.0-alpha.9"
-  resolved "https://registry.npmjs.org/@gnosis.pm/safe-ethers-adapters/-/safe-ethers-adapters-0.1.0-alpha.9.tgz"
-  integrity sha512-wOfKnh0SbwIceOiIp37FbUW1KYJGWNzxeupsLimwMWOAZBrZubxzsJpKec6AwYW6XZLps3m7hCv+Ir8U08pCPw==
+"@gnosis.pm/safe-ethers-adapters@0.1.0-alpha.11":
+  version "0.1.0-alpha.11"
+  resolved "https://registry.yarnpkg.com/@gnosis.pm/safe-ethers-adapters/-/safe-ethers-adapters-0.1.0-alpha.11.tgz#07b4445e5ebbb27917ab2d0c9ecbe0cb5362e1ca"
+  integrity sha512-YR7mD70kWAqU9ebeZWob8NpouE3kl3YqwrKW3hmAJU1RR4VZzCPlMpMFJAMOvf/Dxy48E4MhWW3MtoR4Rw3Vdw==
   dependencies:
-    "@gnosis.pm/safe-core-sdk" "^2.1.0"
-    "@gnosis.pm/safe-core-sdk-types" "^1.1.0"
-    "@gnosis.pm/safe-deployments" "^1.12.0"
-    axios "^0.26.1"
+    "@gnosis.pm/safe-core-sdk" "^3.1.1"
+    "@gnosis.pm/safe-core-sdk-types" "^1.6.1"
+    "@gnosis.pm/safe-deployments" "1.16.0"
+    axios "^0.27.2"
 
-"@gnosis.pm/safe-ethers-lib@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/@gnosis.pm/safe-ethers-lib/-/safe-ethers-lib-1.1.0.tgz"
-  integrity sha512-MG01hGu/3q/sl9fXE3sU7CMVpVMJ4k9/ro1JVZaE29jmsar1cHFUOJNws7Do3orxTLQZ2egkARcmyv+l673FoA==
+"@gnosis.pm/safe-ethers-lib@^1.6.1":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@gnosis.pm/safe-ethers-lib/-/safe-ethers-lib-1.6.1.tgz#2fe88464faa348d4dbe58e93199c419976a5da88"
+  integrity sha512-rUv2Dwi3whTmcgx6EejI5llMDnxhwyTX/8j01K6fWBfOAFaUV78gbtPcwmdr1WCVVcXSdKszyarus5fyZTKNfA==
   dependencies:
-    "@gnosis.pm/safe-core-sdk-types" "^1.1.0"
-    "@gnosis.pm/safe-core-sdk-utils" "^1.1.0"
+    "@gnosis.pm/safe-core-sdk-types" "^1.6.1"
+    "@gnosis.pm/safe-core-sdk-utils" "^1.4.1"
+    ethers "^5.7.1"
 
 "@hapi/hoek@^9.0.0":
   version "9.3.0"
@@ -985,9 +986,9 @@
   resolved "https://registry.npmjs.org/@metaplex-foundation/cusper/-/cusper-0.0.2.tgz"
   integrity sha512-S9RulC2fFCFOQraz61bij+5YCHhSO9llJegK8c8Y6731fSi6snUSQJdCUqYS8AIgR0TKbQvdvgSyIIdbDFZbBA==
 
-"@metaplex-foundation/js@^0.15.0":
+"@metaplex-foundation/js@0.15.0":
   version "0.15.0"
-  resolved "https://registry.npmjs.org/@metaplex-foundation/js/-/js-0.15.0.tgz"
+  resolved "https://registry.yarnpkg.com/@metaplex-foundation/js/-/js-0.15.0.tgz#0e0165695d101382e377e6b55972b6119db2b8fa"
   integrity sha512-i+S4Z8fb9HIC+Yyx8Kaeau7jKFv8qIOE5pLsdQx4eGkqrQyxVynRyzP6EMsitkGJ11pHUYvrcmRmTvMYYV8pfQ==
   dependencies:
     "@bundlr-network/client" "^0.7.14"
@@ -1040,6 +1041,19 @@
   dependencies:
     "@solana/web3.js" "^1.35.1"
     bs58 "^4.0.1"
+
+"@metaplex-foundation/mpl-token-metadata@2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@metaplex-foundation/mpl-token-metadata/-/mpl-token-metadata-2.2.2.tgz#91fdf9dc48af332a35ce7e07e456c140682ca7de"
+  integrity sha512-pYbzn4+LE6cuyPjSiX6CzxLNiwSvxYxzc17vV1Zl4EOcwQgsvR0RW1LE5kyCGU/sV390P6/k7jceO3KFHSIWLw==
+  dependencies:
+    "@metaplex-foundation/beet" "^0.4.0"
+    "@metaplex-foundation/beet-solana" "^0.3.0"
+    "@metaplex-foundation/cusper" "^0.0.2"
+    "@solana/spl-token" "^0.2.0"
+    "@solana/web3.js" "^1.35.1"
+    bn.js "^5.2.0"
+    debug "^4.3.3"
 
 "@metaplex-foundation/mpl-token-metadata@^2.2.2":
   version "2.3.3"
@@ -1225,9 +1239,9 @@
   resolved "https://registry.npmjs.org/@pedrouid/environment/-/environment-1.0.1.tgz"
   integrity sha512-HaW78NszGzRZd9SeoI3JD11JqY+lubnaOx7Pewj5pfjqWXOEATpeKIFb9Z4t2WBUK2iryiXX3lzWwmYWgUL0Ug==
 
-"@project-serum/anchor@^0.25.0":
+"@project-serum/anchor@0.25.0":
   version "0.25.0"
-  resolved "https://registry.npmjs.org/@project-serum/anchor/-/anchor-0.25.0.tgz"
+  resolved "https://registry.yarnpkg.com/@project-serum/anchor/-/anchor-0.25.0.tgz#88ee4843336005cf5a64c80636ce626f0996f503"
   integrity sha512-E6A5Y/ijqpfMJ5psJvbw0kVTzLZFUcOFgs6eSM2M2iWE1lVRF18T6hWZVNl6zqZsoz98jgnNHtVGJMs+ds9A7A==
   dependencies:
     "@project-serum/borsh" "^0.2.5"
@@ -1310,7 +1324,7 @@
   dependencies:
     buffer "~6.0.3"
 
-"@solana/spl-token@^0.2.0":
+"@solana/spl-token@0.2.0", "@solana/spl-token@^0.2.0":
   version "0.2.0"
   resolved "https://registry.npmjs.org/@solana/spl-token/-/spl-token-0.2.0.tgz"
   integrity sha512-RWcn31OXtdqIxmkzQfB2R+WpsJOVS6rKuvpxJFjvik2LyODd+WN58ZP3Rpjpro03fscGAkzlFuP3r42doRJgyQ==
@@ -1320,12 +1334,19 @@
     "@solana/web3.js" "^1.32.0"
     start-server-and-test "^1.14.0"
 
-"@solana/wallet-adapter-base@^0.9.2":
+"@solana/wallet-adapter-base@^0.9.18", "@solana/wallet-adapter-base@^0.9.2":
   version "0.9.18"
   resolved "https://registry.npmjs.org/@solana/wallet-adapter-base/-/wallet-adapter-base-0.9.18.tgz"
   integrity sha512-5HQFytLmb64j1Nzc6dwddZx+IUePN/PYqVMyf/ok7fN3z8Vw3EIFS8b+RFfBpj4HWbc2kqv5fpnLlaAH7q67pA==
   dependencies:
     eventemitter3 "^4.0.0"
+
+"@solana/wallet-adapter-phantom@^0.9.17":
+  version "0.9.17"
+  resolved "https://registry.yarnpkg.com/@solana/wallet-adapter-phantom/-/wallet-adapter-phantom-0.9.17.tgz#d042f5d94fdbe5493f78717b6f3419941574ae2e"
+  integrity sha512-NgqObD9G2SojkKaLEz7RPC0izS0qPzHa94Da4le3xMErW7SKIEKjVfQ3fP/rIcD2jEwGW5qf9YqYPsPw8jaJ0Q==
+  dependencies:
+    "@solana/wallet-adapter-base" "^0.9.18"
 
 "@solana/web3.js@1.52.0":
   version "1.52.0"
@@ -1350,7 +1371,28 @@
     superstruct "^0.14.2"
     tweetnacl "^1.0.3"
 
-"@solana/web3.js@^1.32.0", "@solana/web3.js@^1.35.1", "@solana/web3.js@^1.36.0", "@solana/web3.js@^1.47.3", "@solana/web3.js@^1.50.1", "@solana/web3.js@^1.56.2":
+"@solana/web3.js@1.62.0":
+  version "1.62.0"
+  resolved "https://registry.yarnpkg.com/@solana/web3.js/-/web3.js-1.62.0.tgz#8fef9fd443217161ddc25e701f603222047bc520"
+  integrity sha512-rHnqJR5ECooUp8egurP9Qi1SKI1Q3pbF2ZkaHbEmFsSjBsyEe+Qqxa5h+7ueylqApYyk0zawnxz83y4kdrlNIA==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "@noble/ed25519" "^1.7.0"
+    "@noble/hashes" "^1.1.2"
+    "@noble/secp256k1" "^1.6.3"
+    "@solana/buffer-layout" "^4.0.0"
+    bigint-buffer "^1.1.5"
+    bn.js "^5.0.0"
+    borsh "^0.7.0"
+    bs58 "^4.0.1"
+    buffer "6.0.1"
+    fast-stable-stringify "^1.0.0"
+    jayson "^3.4.4"
+    node-fetch "2"
+    rpc-websockets "^7.5.0"
+    superstruct "^0.14.2"
+
+"@solana/web3.js@^1.32.0", "@solana/web3.js@^1.35.1", "@solana/web3.js@^1.36.0", "@solana/web3.js@^1.47.3", "@solana/web3.js@^1.56.2":
   version "1.66.1"
   resolved "https://registry.npmjs.org/@solana/web3.js/-/web3.js-1.66.1.tgz"
   integrity sha512-AAVW9vGqYo8m2kMdwQtzEFuEBT21D0Z13wCzGC0lv4vay1BaqDUGSangmakeDEirtIsaAtM0gfAPu1YNLkIy/Q==
@@ -1408,20 +1450,21 @@
   resolved "https://registry.npmjs.org/@thirdweb-dev/contracts/-/contracts-3.1.8-0.tgz"
   integrity sha512-PiQjdRcAUBlu3poc4g6dN9KvjTgYsA1Vi+B/IgryptCgcJeMY4cldMabKCgPaCg9dPVpUq4O+SOM00P6mBNvGw==
 
-"@thirdweb-dev/react@^3.3.0":
-  version "3.3.0"
-  resolved "https://registry.npmjs.org/@thirdweb-dev/react/-/react-3.3.0.tgz"
-  integrity sha512-Px/G9Gn29R9FIQcZWeg1yhINnGGqPZ0C9fZo1qQ5YCIIl8MHMDBmYyHy+UOg5x++OkqCA69oWF3qdCS3cy2/cg==
+"@thirdweb-dev/react@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@thirdweb-dev/react/-/react-3.4.0.tgz#9bbbc5d3dfe70988c4599482a53d48855e8212d6"
+  integrity sha512-xwuHP8OYYD9n36A8ULHXDbNAQLTyrDtcO4MBbaVFDv0tcWC+QTUxCDWDhYcwWqhJhfa66bcZ9vTD81NZc9bhTg==
   dependencies:
     "@emotion/react" "^11.10.0"
     "@emotion/styled" "^11.10.0"
-    "@gnosis.pm/safe-core-sdk" "2.1.0"
-    "@gnosis.pm/safe-ethers-adapters" "0.1.0-alpha.9"
-    "@gnosis.pm/safe-ethers-lib" "1.1.0"
+    "@gnosis.pm/safe-core-sdk" "^3.1.1"
+    "@gnosis.pm/safe-ethers-adapters" "0.1.0-alpha.11"
+    "@gnosis.pm/safe-ethers-lib" "^1.6.1"
     "@react-icons/all-files" "^4.1.0"
+    "@solana/wallet-adapter-phantom" "^0.9.17"
     "@tanstack/react-query" "^4.0.10"
-    "@zag-js/menu" "0.1.14"
-    "@zag-js/react" "0.1.16"
+    "@zag-js/menu" "^0.1.16"
+    "@zag-js/react" "^0.1.18"
     buffer "^6.0.3"
     color "^4.2.3"
     copy-to-clipboard "^3.3.2"
@@ -1432,18 +1475,18 @@
     tiny-invariant "^1.2.0"
     wagmi "^0.2.28"
 
-"@thirdweb-dev/sdk@^3.3.0":
-  version "3.3.0"
-  resolved "https://registry.npmjs.org/@thirdweb-dev/sdk/-/sdk-3.3.0.tgz"
-  integrity sha512-rVrcrLoCpQFwg4jh6/YN+S2eeplWoCZO3u/W4scVPgqrdBm8HIL8nWqbeVi/lY7gPB+9SHv6854gPvsOqPWoAw==
+"@thirdweb-dev/sdk@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@thirdweb-dev/sdk/-/sdk-3.4.0.tgz#72bd70b6ad5a04b9801c5be6ebcd7f67d67a5715"
+  integrity sha512-zmVPa4lCU1yD7j73msw0c8IAGJAFNPIaypcSzn6XU/IzvT0Co3tfqhAeXjTRSWdUPV/ntA6yeStuTwjWsI16uA==
   dependencies:
-    "@metaplex-foundation/js" "^0.15.0"
-    "@metaplex-foundation/mpl-token-metadata" "^2.2.2"
-    "@project-serum/anchor" "^0.25.0"
-    "@solana/spl-token" "^0.2.0"
-    "@solana/web3.js" "^1.50.1"
+    "@metaplex-foundation/js" "0.15.0"
+    "@metaplex-foundation/mpl-token-metadata" "2.2.2"
+    "@project-serum/anchor" "0.25.0"
+    "@solana/spl-token" "0.2.0"
+    "@solana/web3.js" "1.62.0"
     "@thirdweb-dev/contracts-js" "^1.1.9"
-    "@thirdweb-dev/storage" "^1.0.5"
+    "@thirdweb-dev/storage" "^1.0.6"
     bn.js "^5.2.1"
     bs58 "^5.0.0"
     cbor-x "^1.4.1"
@@ -1457,10 +1500,10 @@
     yaml "^2.1.1"
     zod "^3.11.6"
 
-"@thirdweb-dev/storage@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.npmjs.org/@thirdweb-dev/storage/-/storage-1.0.5.tgz"
-  integrity sha512-9pRp97nGiAN78carYHmLmomB9oPkXUraA6oU+pzzygSr5kOtoeIIPILGZW2XK8rPA8w0y4LiThFOaa0dUyyVkQ==
+"@thirdweb-dev/storage@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@thirdweb-dev/storage/-/storage-1.0.6.tgz#219bc15d69885421696bd3d0fb90608c2ead2836"
+  integrity sha512-meao2NFgzLh++9RHBO/belIbReFsxJVYoxuuj2Vt2XT6PuMHPg8zOvQsyT+FQz9cvFwvMW5RNZUTPr0gu2JlxQ==
   dependencies:
     cross-fetch "^3.1.5"
     form-data "^4.0.0"
@@ -1811,65 +1854,64 @@
   dependencies:
     "@walletconnect/window-getters" "^1.0.0"
 
-"@zag-js/core@0.1.10":
-  version "0.1.10"
-  resolved "https://registry.npmjs.org/@zag-js/core/-/core-0.1.10.tgz"
-  integrity sha512-lsJet2ZmTsBlDaMfCJoP0vrhDnn/vqC5NFTuTZ3f+AWwZn/VECXf9yoETGQpB0H74Y2yI2N8etL3NIH0r7kvCA==
+"@zag-js/core@0.1.12":
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/@zag-js/core/-/core-0.1.12.tgz#f0cd7687b26c55845c9bd55822f0b76b1c3ceee7"
+  integrity sha512-92QVG6O0Txr28PCAIk1FhWrB4BoYc4MJOWxpazqB7PoLz93+sNytCI0cMOEJnLdu0Qy/WvATYiqifuH92Qa1AA==
   dependencies:
-    "@zag-js/store" "0.1.2"
+    "@zag-js/store" "0.1.4"
     klona "2.0.5"
 
-"@zag-js/dismissable@0.1.4":
-  version "0.1.4"
-  resolved "https://registry.npmjs.org/@zag-js/dismissable/-/dismissable-0.1.4.tgz"
-  integrity sha512-1LIela1qG6JEvPpo9PIfzKQ+6inHrdM82T5gU/gY3+sB/LEX084C9+UmfvHmcI629XSmN13QzWoSbRG0ynZ37Q==
+"@zag-js/dismissable@0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@zag-js/dismissable/-/dismissable-0.1.6.tgz#f7aa17a6f0998e27ae4cd2354a91a70dd5e82f07"
+  integrity sha512-dbgjloVkmqGG5asGYmmQgLwX0J7U+tGFWGlFCIJpwtS19D2Qq6b/M0FAKxv0MNKM58ucpj30oZoRVo8Eqpc1JA==
   dependencies:
-    "@zag-js/interact-outside" "0.1.4"
+    "@zag-js/interact-outside" "0.1.6"
 
-"@zag-js/interact-outside@0.1.4":
-  version "0.1.4"
-  resolved "https://registry.npmjs.org/@zag-js/interact-outside/-/interact-outside-0.1.4.tgz"
-  integrity sha512-GeDWrb9WrJ8tQTaPF1KaUUfVbAotM/1ltdHnksa+03uQ+WVOgmDF+6Qmd57EnQgGu7htpA2dNLHsqXAp6aPrrQ==
+"@zag-js/interact-outside@0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@zag-js/interact-outside/-/interact-outside-0.1.6.tgz#110cf93689dbf59353ddbfed8c97121a9cb4f83b"
+  integrity sha512-WMU7R/iyvY0/12OZI4QG0w72+ZWeMcv02W4Nj47s60oxzcZIkIQZ4VHLH4gkOF+aVA1OrbbYxIke3wH4LRgFBg==
 
-"@zag-js/menu@0.1.14":
-  version "0.1.14"
-  resolved "https://registry.npmjs.org/@zag-js/menu/-/menu-0.1.14.tgz"
-  integrity sha512-T/NUHMjiI50IOQS4I9DyMLHL/LUwoXvOLrYoVgNCxyyDWfCtBWSztBYNiVHUhJFCVlPfLkyevcxl6JRIjvQkPA==
+"@zag-js/menu@^0.1.16":
+  version "0.1.16"
+  resolved "https://registry.yarnpkg.com/@zag-js/menu/-/menu-0.1.16.tgz#8ee2b061597173130d3269258f68546d0edac04b"
+  integrity sha512-LT6VuUMb+HlizHCuZOMo6Vagc4BDaYts1VcRJ1s3Hb9KQm5aP8hQvrHkDW/y58p9CrqqfqC1UdcB3nZkmHZTKw==
   dependencies:
-    "@zag-js/core" "0.1.10"
-    "@zag-js/dismissable" "0.1.4"
-    "@zag-js/popper" "0.1.11"
-    "@zag-js/types" "0.2.5"
+    "@zag-js/core" "0.1.12"
+    "@zag-js/dismissable" "0.1.6"
+    "@zag-js/popper" "0.1.13"
+    "@zag-js/types" "0.2.7"
 
-"@zag-js/popper@0.1.11":
-  version "0.1.11"
-  resolved "https://registry.npmjs.org/@zag-js/popper/-/popper-0.1.11.tgz"
-  integrity sha512-1jbveJmbyctiGumjsYNv4nWMlRHvBFWt7KmeGSjoOEHiTcx2hEHH3gBu+/ZMwxH3cM4+ZhRM7IxN+5lY7tTKwQ==
+"@zag-js/popper@0.1.13":
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/@zag-js/popper/-/popper-0.1.13.tgz#4eaf89226166d73f39699422102f6dcb2d6f50f9"
+  integrity sha512-P6EzpxHvJRaQFVft6Ko9LlgKh5jX+/3yxCVIkrweXpmVRPPukzj+0uZK3u4i4c1SWC/7r7AIRRxrwxf4DEDeOg==
   dependencies:
     "@floating-ui/dom" "1.0.1"
 
-"@zag-js/react@0.1.16":
-  version "0.1.16"
-  resolved "https://registry.npmjs.org/@zag-js/react/-/react-0.1.16.tgz"
-  integrity sha512-qK01vagPk9ZXDu0AhLIPelehFJ0UmvgEQUL9bO/lEHppKEIoO0EiJTKKhjGjzOtaRahK4WmJ9bPsRdklv9ta1Q==
+"@zag-js/react@^0.1.18":
+  version "0.1.18"
+  resolved "https://registry.yarnpkg.com/@zag-js/react/-/react-0.1.18.tgz#b723c1fd9beb676cb19323e7e465cfdc68d7cb73"
+  integrity sha512-twH4a0QmbzACXPOj2CUaSB7X8nn3czYwrqMupI5XegeqywoOBBYk+qzQEwbbuaY6sZdRqTtNpeh70POLCZWUCw==
   dependencies:
-    "@zag-js/core" "0.1.10"
-    "@zag-js/store" "0.1.2"
-    "@zag-js/types" "0.2.5"
-    proxy-compare "2.3.0"
-    use-sync-external-store "1.2.0"
-
-"@zag-js/store@0.1.2":
-  version "0.1.2"
-  resolved "https://registry.npmjs.org/@zag-js/store/-/store-0.1.2.tgz"
-  integrity sha512-ya9zb2mpqXaLwCYaIC536sUapIFlLNWEpR5MuIa4h2mvktTVDdG0AQTD4GsQij/6lgAmVE/qvqpMRaeI4zfkRQ==
-  dependencies:
+    "@zag-js/core" "0.1.12"
+    "@zag-js/store" "0.1.4"
+    "@zag-js/types" "0.2.7"
     proxy-compare "2.3.0"
 
-"@zag-js/types@0.2.5":
-  version "0.2.5"
-  resolved "https://registry.npmjs.org/@zag-js/types/-/types-0.2.5.tgz"
-  integrity sha512-T2Vrwm7maw8JtB2OyeDUagc/R87pL79t0aiYSEQBb3UKjnuXDOlcM06ubecPMINxiMIGueKNUbTdsXZ4rWf16Q==
+"@zag-js/store@0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/store/-/store-0.1.4.tgz#473dc450e8e630f22f3f1d8d573d4845c7fadef8"
+  integrity sha512-Mq3IwpPvoOzbNqWGcH/t0u7M3IpXTHmU+YeyYmZy8aD+kUrMx8s4IY8fZvnrIgOZrL7Rb45GRrRNpEJfGmTGFg==
+  dependencies:
+    proxy-compare "2.3.0"
+
+"@zag-js/types@0.2.7":
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/@zag-js/types/-/types-0.2.7.tgz#8ae259aab593628797cab18a1d4b216952fd1821"
+  integrity sha512-UZn+n6XjPMC9NjZZcXKTDeBJ8ere1xWmKn/JjodIRe5L8xCPw8d288JF3EmXBeZQokmQyQDL5hBXYxpA4tKfRQ==
   dependencies:
     csstype "3.1.0"
 
@@ -2185,13 +2227,6 @@ axios@^0.25.0:
   integrity sha512-cD8FOb0tRH3uuEe6+evtAbgJtfxr7ly3fQjYcMcuPlgkwVS9xboaVIpcDV+cYQe+yGykgwZCs1pzjntcGa6l5g==
   dependencies:
     follow-redirects "^1.14.7"
-
-axios@^0.26.1:
-  version "0.26.1"
-  resolved "https://registry.npmjs.org/axios/-/axios-0.26.1.tgz"
-  integrity sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==
-  dependencies:
-    follow-redirects "^1.14.8"
 
 axios@^0.27.2:
   version "0.27.2"
@@ -3598,7 +3633,7 @@ ethereumjs-util@^6.0.0:
     ethjs-util "0.1.6"
     rlp "^2.2.3"
 
-ethereumjs-util@^7.1.0, ethereumjs-util@^7.1.4, ethereumjs-util@^7.1.5:
+ethereumjs-util@^7.1.0, ethereumjs-util@^7.1.5:
   version "7.1.5"
   resolved "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-7.1.5.tgz"
   integrity sha512-SDl5kKrQAudFBUe5OJM9Ac6WmMyYmXX/6sTmLZ3ffG2eY6ZIGBes3pEDxNN6V72WyOw4CPD5RomKdsa8DAAwLg==
@@ -3609,7 +3644,7 @@ ethereumjs-util@^7.1.0, ethereumjs-util@^7.1.4, ethereumjs-util@^7.1.5:
     ethereum-cryptography "^0.1.3"
     rlp "^2.2.4"
 
-ethers@^5.5.1, ethers@^5.7.2:
+ethers@^5.5.1, ethers@^5.7.1, ethers@^5.7.2:
   version "5.7.2"
   resolved "https://registry.npmjs.org/ethers/-/ethers-5.7.2.tgz"
   integrity sha512-wswUsmWo1aOK8rR7DIKiWSw9DbLWe6x98Jrn8wcTflTVvaXhAMaB5zGAXy0GYQEQp9iO1iSHWVyARQm11zUtyg==
@@ -3845,7 +3880,7 @@ flatted@^3.1.0:
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.7.tgz"
   integrity sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==
 
-follow-redirects@^1.14.0, follow-redirects@^1.14.7, follow-redirects@^1.14.8, follow-redirects@^1.14.9, follow-redirects@^1.15.0:
+follow-redirects@^1.14.0, follow-redirects@^1.14.7, follow-redirects@^1.14.9, follow-redirects@^1.15.0:
   version "1.15.2"
   resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.2.tgz"
   integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
@@ -5713,7 +5748,7 @@ semver@^6.1.1, semver@^6.1.2, semver@^6.3.0:
   resolved "https://registry.npmjs.org/semver/-/semver-6.3.0.tgz"
   integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
 
-semver@^7.3.2, semver@^7.3.5, semver@^7.3.7:
+semver@^7.3.2, semver@^7.3.7:
   version "7.3.8"
   resolved "https://registry.npmjs.org/semver/-/semver-7.3.8.tgz"
   integrity sha512-NB1ctGL5rlHrPJtFDVIVzTyQylMLu9N9VICA6HSFJo8MCGVTMW6gfpicwKmmK/dAjTOrqu5l63JJOpDSrAis3A==
@@ -6597,7 +6632,7 @@ web3-utils@1.5.2:
     randombytes "^2.1.0"
     utf8 "3.0.0"
 
-web3-utils@1.8.0, web3-utils@^1.3.4, web3-utils@^1.7.1, web3-utils@^1.8.0:
+web3-utils@1.8.0, web3-utils@^1.3.4, web3-utils@^1.8.0:
   version "1.8.0"
   resolved "https://registry.npmjs.org/web3-utils/-/web3-utils-1.8.0.tgz"
   integrity sha512-7nUIl7UWpLVka2f09CMbKOSEvorvHnaugIabU4mj7zfMvm0tSByLcEu3eyV9qgS11qxxLuOkzBIwCstTflhmpQ==
