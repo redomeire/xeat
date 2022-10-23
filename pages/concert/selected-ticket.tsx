@@ -137,7 +137,9 @@ const SelectedTicket = () => {
                         <div className="mt-5 flex md:flex-row flex-col items-center">
                             <p>Belum memiliki metamask wallet?
                             </p>
-                            <a className="font-bold md:ml-5" href="/faq">FAQ</a>
+                            <div className="font-bold md:ml-3">
+                                <Link className="" href="/faq">FAQ</Link>
+                            </div>
 
                         </div>
 
