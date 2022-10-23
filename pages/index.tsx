@@ -77,17 +77,17 @@ const Dashboard = () => {
                     <h4 className="font-bold text-xl my-10">Categories</h4>
                     <div className="flex flex-col lg:flex-row p-2 flex-wrap">
                         <Link href={`/concert`}>
-                            <div className={`cursor-pointer rounded-lg relative bg-cover transition hover:brightness-75 lg:w-fit lg:m-2 lg:mx-10 lg:my-3 my-2 min-w-[200px] min-h-[100px] w-full`} style={{ backgroundImage: `url(/images/concert.svg)`, position: 'relative' }}>
+                            <div className={`cursor-pointer rounded-lg relative bg-cover transition hover:brightness-75 lg:w-fit lg:m-2 lg:mx-10 lg:my-3 my-2 min-w-[200px] min-h-[100px] w-full`} style={{ backgroundImage: `url(/images/concert.png)`, position: 'relative' }}>
                                 <p className="absolute left-5 bottom-3 font-bold text-white">Concert</p>
                             </div>
                         </Link>
                         <Link href={`/sports`}>
-                            <div className={`cursor-pointer rounded-lg relative bg-cover transition hover:brightness-75 lg:w-fit lg:m-2 lg:mx-10 lg:my-3 my-2 min-w-[200px] min-h-[100px] w-full`} style={{ backgroundImage: `url(/images/sport.svg)`, position: 'relative' }}>
+                            <div className={`cursor-pointer rounded-lg relative bg-cover transition hover:brightness-75 lg:w-fit lg:m-2 lg:mx-10 lg:my-3 my-2 min-w-[200px] min-h-[100px] w-full`} style={{ backgroundImage: `url(/images/sport.png)`, position: 'relative' }}>
                                 <p className="absolute left-5 bottom-3 font-bold text-white">Sports</p>
                             </div>
                         </Link>
                         <Link href={`/park`}>
-                            <div className={`cursor-pointer rounded-lg relative bg-cover transition hover:brightness-75 lg:w-fit lg:m-2 lg:mx-10 lg:my-3 my-2 min-w-[200px] min-h-[100px] w-full`} style={{ backgroundImage: `url(/images/park.svg)`, position: 'relative' }}>
+                            <div className={`cursor-pointer rounded-lg relative bg-cover transition hover:brightness-75 lg:w-fit lg:m-2 lg:mx-10 lg:my-3 my-2 min-w-[200px] min-h-[100px] w-full`} style={{ backgroundImage: `url(/images/park.png)`, position: 'relative' }}>
                                 <p className="absolute left-5 bottom-3 font-bold text-white">Park</p>
                             </div>
                         </Link>
