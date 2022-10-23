@@ -6,6 +6,7 @@ import AppLayout from "../../../components/layout/AppLayout";
 import { InstagramLoader, SkeletonLoader } from "../../../components/loader/SkeletonLoader";
 import CardResult from "../../../components/concert/CardResult";
 import { motion } from "framer-motion";
+import Head from "next/head";
 
 const resultData = [
     {
@@ -66,6 +67,9 @@ const Details = () => {
 
     return (
         <AppLayout>
+            <Head>
+                <title>Xeat - {items.event_name || 'concert'}</title>
+            </Head>
             <div className="jumbotron py-16 bg-[#19083D] text-white p-5 flex items-center flex-col">
                 <div className="md:w-[90%] jumbotron pt-20 bg-[#19083D] text-white p-5 flex items-center flex-col-reverse lg:flex-row justify-between">
                     <motion.div

@@ -6,6 +6,7 @@ import axios from "axios";
 import React from "react";
 import { InstagramLoader, SkeletonLoader } from "../components/loader/SkeletonLoader";
 import { motion } from 'framer-motion';
+import Head from "next/head";
 
 interface Props {
     [x: string]: any;
@@ -43,6 +44,9 @@ const Dashboard = () => {
 
     return (
         <AppLayout>
+            <Head>
+                <title>Xeat - Concert</title>
+            </Head>
             <div className="jumbotron pt-20 bg-primary text-white p-5 flex items-center flex-col text-center min-h-screen">
                 <div>
                     <h1 className="md:text-5xl text-4xl font-bold mb-5 mt-10 uppercase">concert</h1>
