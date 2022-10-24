@@ -96,7 +96,7 @@ const Details = () => {
                                 <InstagramLoader className="md:w-[300px] w-full md:h-[300px]" />
                             </div>
                             :
-                            <img src={items.image} className="w-[400px]" />
+                            <img src={items.image} className="w-[400px] rounded-3xl hover:brightness-75 transition duration-300 cursor-pointer" />
                     }
                     </div>
                 </div>

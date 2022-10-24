@@ -108,7 +108,7 @@ const SelectedTicket = () => {
                         {
                             Object.keys(items).length === 0 ? <SkeletonLoader />
                                 :
-                                <img src={items.image} alt="pic" width={400} height={250} />
+                                <img src={items.image} alt="pic" width={400} height={250} className="rounded-3xl hover:brightness-75 transition duration-300" />
                         }
                         <div className="lg:w-1/2">
                             {
@@ -149,15 +149,6 @@ const SelectedTicket = () => {
                                     min={1}
                                     defaultValue={ticketAmount.toString()}
                                 />
-                            </div>
-
-                            <div className="mt-5">
-                                <Button content="" type="button" className="bg-white w-full text-black flex items-center rounded-3xl py-0 md:flex-row flex-col p-3">
-                                    <div>
-                                        <img src="/images/metamask_icon.svg" className="w-[50px]" />
-                                    </div>
-                                    <p className="-mt-[5px] font-bold md:ml-5">Connect metamask wallet</p>
-                                </Button>
                             </div>
 
                             <div className="mt-5 flex md:flex-row flex-col items-center">
