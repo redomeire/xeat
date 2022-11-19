@@ -1,47 +1,45 @@
 import React from "react";
-import axios from 'axios';
-import Mail from "/images/mail_icon.png";
-import Password from "/images/password_icon.png";
 import AppLayout from "../../components/layout/AppLayout";
 import Input from "../../components/input/Input";
 import Button from "../../components/button/Button";
-import Image from "next/image";
-import { Router, useRouter } from "next/router";
 import Swal from "sweetalert2";
 import Link from "next/link";
 import Head from "next/head";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { app } from "../../components/auth";
 
 const Login = () => {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
-    const router = useRouter();
 
-    const fetchingData = () => {
-        axios.post('https://reqres.in/api/login', {
-            email: email,
-            password: password
-        })
-            .then((res: { data: { token: string; }; }) => {
-                localStorage.setItem('Authorization', res.data.token);
+    const login = () => {
+        const auth = getAuth(app);
+        signInWithEmailAndPassword(auth, email, password)
+            .then(async (userCredential) => {
+                const user = userCredential.user;
                 Swal.fire({
-                    icon: 'success',
-                    title: 'Success',
-                    text: 'Login successful!',
-                    timer: 2000,
-                    showConfirmButton: false
+                    title: 'Success login',
+                    icon: 'success'
                 })
-                setTimeout(() => {
-                    window.location.reload();
-                }, 2000);
+                
+                window.localStorage.setItem('Authorization', await userCredential.user.getIdToken());
             })
-            .catch((err: any) => {
-                console.log(err);
-            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+
+                Swal.fire({
+                    title: 'Error login',
+                    icon: 'error',
+                    text: errorMessage
+                })
+            });
     }
 
     const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
-        fetchingData();
+        // fetchingData();
+        login()
     }
 
     return (
@@ -60,7 +58,7 @@ const Login = () => {
                         <div className="my-5 w-full">
                             <Input type="password" className="border rounded-2xl w-full" onChange={(e) => setPassword(e.target.value)} placeholder="masukkan password anda" beginningIcon={<img src="/images/password_icon.png" alt="password" className="w-[24px]" />} required />
                         </div>
-                        <Button content="Submit" type="submit" className="bg-[#19083D] text-white rounded-full w-[50%] flex items-center justify-center p-3" onClick={fetchingData} >Submit</Button>
+                        <Button content="Submit" type="submit" className="bg-[#19083D] text-white rounded-full w-[50%] flex items-center justify-center p-3" >Submit</Button>
                     </div>
                     <div className="mt-10">
                         <hr />

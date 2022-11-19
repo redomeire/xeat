@@ -48,7 +48,7 @@ const Navbar = ({ isAuthenticated }: Props) => {
 
     const handleLogout = () => {
         localStorage.removeItem('Authorization');
-        route.push('/login')
+        route.push('/organizer/login')
     }
 
     return (

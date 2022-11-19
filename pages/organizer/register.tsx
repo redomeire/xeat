@@ -9,6 +9,9 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Head from "next/head";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { app } from "../../components/auth";
+import Swal from "sweetalert2";
 
 const Register = () => {
     const [email, setEmail] = React.useState('');
@@ -17,10 +20,10 @@ const Register = () => {
     const [lastname, setLastname] = React.useState('');
     const router = useRouter();
 
-    React.useEffect(() => {
-        if(window.localStorage.getItem('Authorization'))
-            router.push('/home')
-    }, [])
+    // React.useEffect(() => {
+    //     if (window.localStorage.getItem('Authorization'))
+    //         router.push('/home')
+    // }, [])
 
     const fetchingData = () => {
         axios.post('https://reqres.in/api/reqister', {
@@ -30,16 +33,40 @@ const Register = () => {
             .then((res) => {
                 // localStorage.setItem('Authorization', res.data.token);
                 alert(res.data.token);
-                window.location.reload();
+                // window.location.reload();
             })
             .catch((err) => {
                 console.log(err);
             })
     }
 
+    const register = () => {
+        const auth = getAuth(app);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                Swal.fire({
+                    title: 'Success creating account',
+                    icon: 'success'
+                })
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                
+                Swal.fire({
+                    title: 'Error creating account',
+                    icon: 'error',
+                    text: errorMessage
+                })
+            });
+    }
+
     const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
-        fetchingData();
+        // fetchingData();
+        register();
     }
 
     return (
