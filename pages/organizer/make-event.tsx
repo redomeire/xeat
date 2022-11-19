@@ -217,9 +217,9 @@ const MakeEvent = () => {
                             </div>
                         </div>
                         <div className="my-4 w-fit">
-                            <p className="capitalize text-primary font-bold text-2xl mb-2">informasi kelas tiket</p>
+                            <p className="capitalize text-primary font-bold text-2xl mb-2">Masukkan informasi tambahan</p>
                             <div>
-                                <p className="font-poppins">Dibagi ke berapa stakeholder?</p>
+                                <p className="font-poppins">Pembagian dana</p>
                                 <select
                                     placeholder="kategori event"
                                     className="p-2 ring-1 ring-primary rounded-lg min-w-[200px]"
@@ -238,25 +238,13 @@ const MakeEvent = () => {
                                             <div className="border rounded-lg p-3 m-2" key={index}>
                                                 <Input
                                                     type="text"
-                                                    placeholder="jenis tiket"
+                                                    placeholder="Informasi wallet*"
                                                     className="border-b"
                                                     required
                                                 />
                                                 <Input
                                                     type="text"
-                                                    placeholder="jumlah tiket"
-                                                    className="border-b"
-                                                    required
-                                                />
-                                                <Input
-                                                    type="text"
-                                                    placeholder="Section seat"
-                                                    className="border-b"
-                                                    required
-                                                />
-                                                <Input
-                                                    type="text"
-                                                    placeholder="benefit"
+                                                    placeholder="Persen kepemilikan*"
                                                     className="border-b"
                                                     required
                                                 />
