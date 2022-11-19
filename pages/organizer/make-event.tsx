@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React, { SetStateAction } from "react";
+import Swal from "sweetalert2";
 import Button from "../../components/button/Button";
 import Select from "../../components/dropdown/Select";
 import Input from "../../components/input/Input";
@@ -21,16 +22,40 @@ const selectData = [
 const MakeEvent = () => {
     const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
     const [ticketCount, setTicketCount] = React.useState(0);
-    const [file, setFile] = React.useState<SetStateAction<any>>();
-
-    // const handleChangeImage = (ev: { target: { files: (Blob | MediaSource)[]; }; }) => {
-    //     setFile(URL.createObjectURL(ev.target.files[0]));
-    // }
+    const [ticketCountArr, setTicketCountArr] = React.useState<SetStateAction<any>>([]);
+    const [stakeholderCount, setStakeholderCount] = React.useState(0);
+    const [stakeholderArr, setStakeholderArr] = React.useState<SetStateAction<any>>([]);
+    const [ticketDesign, setTicketDesign] = React.useState<SetStateAction<any>>();
 
     React.useEffect(() => {
-        // for (let i = 0; i < file?.length; i++)
-            console.log(file)
-    }, [file])
+        setTicketCountArr([])
+
+        for (let i = 1; i <= ticketCount; i++)
+            setTicketCountArr((prev: any) => [...prev, i])
+    }, [ticketCount])
+
+    React.useEffect(() => {
+        setTicketCountArr([1])
+    }, [])
+
+    React.useEffect(() => {
+        setStakeholderArr([])
+
+        for (let i = 1; i <= stakeholderCount; i++)
+            setStakeholderArr((prev: any) => [...prev, i])
+    }, [stakeholderCount])
+
+    React.useEffect(() => {
+        setStakeholderArr([1])
+    }, [])
+
+    const handleSubmit = (ev: { preventDefault: () => void; }) => {
+        ev.preventDefault();
+        Swal.fire({
+            icon: 'success',
+            title: 'success creating event'
+        })
+    }
 
     return (
         <UserLayout isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}>
@@ -38,18 +63,18 @@ const MakeEvent = () => {
                 <div className="flex flex-col">
                     <h2 className="text-center text-primary text-2xl font-bold mb-5 capitalize">mulai jual tiket event anda</h2>
                     <p className="text-primary text-2xl font-bold capitalize mb-2">informasi tiket</p>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className="border-2 p-3 rounded-lg">
                             <div>
                                 <div className="ticket-design ">
                                     <p className="capitalize text-xl mb-2">desain tiket</p>
-                                    <div className="bg-gray-400 text-white w-[250px] h-[200px] rounded-2xl relative bg-cover bg-center" style={{backgroundImage: `url('${file}')`}}>
+                                    <div className="bg-gray-400 text-white w-[250px] h-[200px] rounded-2xl relative bg-cover bg-center" style={{ backgroundImage: `url('${ticketDesign}')` }}>
                                         <Input onChange={(e) => {
                                             if (e.target.files !== undefined && e.target.files !== null) {
                                                 let objectURL = null;
                                                 if (e.target.files.length > 0)
-                                                   objectURL = URL.createObjectURL(e.target.files[0]);
-                                                setFile(objectURL)
+                                                    objectURL = URL.createObjectURL(e.target.files[0]);
+                                                setTicketDesign(objectURL)
                                             }
                                         }} type="file" accept="image/*" name='ticket-design' className="opacity-0 cursor-pointer absolute top-0 h-[200px] w-full" />
                                         {/* <img src={file} /> */}
@@ -133,38 +158,107 @@ const MakeEvent = () => {
                         </div>
                         <div className="my-4 w-fit">
                             <p className="capitalize text-primary font-bold text-2xl mb-2">informasi kelas tiket</p>
-                            <select
-                                placeholder="kategori event"
-                                className="p-2 ring-1 ring-primary rounded-lg w-full"
-                                onChange={(e) => setTicketCount(parseInt(e.target.value))}
-                            >
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                            </select>
-
-                            <div className="border rounded-lg p-3">
-                                <Input
-                                    type="text"
-                                    placeholder="jenis tiket"
-                                    className="border-b"
-                                />
-                                <Input
-                                    type="text"
-                                    placeholder="jenis tiket"
-                                    className="border-b"
-                                />
-                                <Input
-                                    type="text"
-                                    placeholder="jenis tiket"
-                                    className="border-b"
-                                />
-                                <Input
-                                    type="text"
-                                    placeholder="jenis tiket"
-                                    className="border-b"
-                                />
+                            <div>
+                                <p className="font-poppins">Berapa jenis tiket</p>
+                                <select
+                                    placeholder="kategori event"
+                                    className="p-2 ring-1 ring-primary rounded-lg min-w-[200px]"
+                                    onChange={(e) => setTicketCount(parseInt(e.target.value))}
+                                    defaultValue={1}
+                                >
+                                    <option value={1}>1</option>
+                                    <option value={2}>2</option>
+                                    <option value={3}>3</option>
+                                </select>
                             </div>
+                            <div className="flex">
+                                {
+                                    ticketCountArr?.map((data: any, index: any) => {
+                                        return (
+                                            <div className="border rounded-lg p-3 m-2" key={index}>
+                                                <Input
+                                                    type="text"
+                                                    placeholder="jenis tiket"
+                                                    className="border-b"
+                                                    required
+                                                />
+                                                <Input
+                                                    type="text"
+                                                    placeholder="jumlah tiket"
+                                                    className="border-b"
+                                                    required
+                                                />
+                                                <Input
+                                                    type="text"
+                                                    placeholder="Section seat"
+                                                    className="border-b"
+                                                    required
+                                                />
+                                                <Input
+                                                    type="text"
+                                                    placeholder="benefit"
+                                                    className="border-b"
+                                                    required
+                                                />
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                        <div className="my-4 w-fit">
+                            <p className="capitalize text-primary font-bold text-2xl mb-2">informasi kelas tiket</p>
+                            <div>
+                                <p className="font-poppins">Dibagi ke berapa stakeholder?</p>
+                                <select
+                                    placeholder="kategori event"
+                                    className="p-2 ring-1 ring-primary rounded-lg min-w-[200px]"
+                                    onChange={(e) => setStakeholderCount(parseInt(e.target.value))}
+                                    defaultValue={1}
+                                >
+                                    <option value={1}>1</option>
+                                    <option value={2}>2</option>
+                                    <option value={3}>3</option>
+                                </select>
+                            </div>
+                            <div className="flex">
+                                {
+                                    stakeholderArr?.map((data: any, index: any) => {
+                                        return (
+                                            <div className="border rounded-lg p-3 m-2" key={index}>
+                                                <Input
+                                                    type="text"
+                                                    placeholder="jenis tiket"
+                                                    className="border-b"
+                                                    required
+                                                />
+                                                <Input
+                                                    type="text"
+                                                    placeholder="jumlah tiket"
+                                                    className="border-b"
+                                                    required
+                                                />
+                                                <Input
+                                                    type="text"
+                                                    placeholder="Section seat"
+                                                    className="border-b"
+                                                    required
+                                                />
+                                                <Input
+                                                    type="text"
+                                                    placeholder="benefit"
+                                                    className="border-b"
+                                                    required
+                                                />
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                            <Button
+                                content=""
+                                className="capitalize bg-primary rounded-lg p-3 text-white"
+                            >ajukan penjualan tiket</Button>
                         </div>
                     </form>
                 </div>
