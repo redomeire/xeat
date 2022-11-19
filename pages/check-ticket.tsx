@@ -37,7 +37,7 @@ const CheckTicket = () => {
                     <form onSubmit={handleSubmit} className="flex items-center justify-center flex-col">
                         <Input
                             type="text"
-                            className=" bg-white rounded-2xl border border-slate-500 md:w-[600px] w-full md:min-w-0 min-w-[280px]"
+                            className="w bg-white rounded-2xl border border-slate-500 md:w-[600px] w-full md:min-w-0 min-w-[280px]"
                             beginningIcon={<img src="/images/password_icon.png" alt="password" className="w-[24px]" />}
                             placeholder="Masukkan Token Address"
                             required
