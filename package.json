@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@metamask/detect-provider": "^2.0.0",
-    "@thirdweb-dev/react": "^3.4.0",
-    "@thirdweb-dev/sdk": "^3.4.0",
+    "@thirdweb-dev/react": "^3.6.0",
+    "@thirdweb-dev/sdk": "^3.6.0",
     "axios": "^1.1.2",
     "ethers": "^5.7.2",
     "firebase": "^9.13.0",
