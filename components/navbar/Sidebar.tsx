@@ -23,13 +23,13 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: Props) => {
 
     return (
         <>
-            <div className={`bg-primary min-h-screen fixed left-0 top-0 bottom-0 md:w-[25%] px-3 md:z-10 z-40 lg:translate-x-0 ${isSidebarOpen ? 'translate-x-0 w-full' : '-translate-x-[1000px]'} transition`}>
-                <Button onClick={() => setIsSidebarOpen(!isSidebarOpen)} content="" className="bg-white text-primary mt-32 md:hidden p-3 rounded-xl mb-5">
+            <div className={`bg-primary min-h-screen fixed left-0 top-0 bottom-0 lg:w-[25%] px-3 lg:z-10 z-40 lg:translate-x-0 ${isSidebarOpen ? 'translate-x-0 w-full' : '-translate-x-[1000px]'} transition`}>
+                <Button onClick={() => setIsSidebarOpen(!isSidebarOpen)} content="" className="bg-white text-primary mt-32 lg:hidden p-3 rounded-xl mb-5">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                     </svg>
                 </Button>
-                <ul className="md:pt-32">
+                <ul className="lg:pt-32">
                     {
                         sidebarData.map((item, index) => {
                             return (
@@ -54,7 +54,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: Props) => {
                     }
                 </ul>
             </div>
-            <div onClick={() => setIsSidebarOpen(!isSidebarOpen)} className={`md:hidden ${isSidebarOpen ? 'absolute' : 'hidden'} top-0 bottom-0 left-0 right-0 bg-white`}>
+            <div onClick={() => setIsSidebarOpen(!isSidebarOpen)} className={`lg:hidden ${isSidebarOpen ? 'absolute' : 'hidden'} top-0 bottom-0 left-0 right-0 bg-white`}>
 
             </div>
         </>

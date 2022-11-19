@@ -7,10 +7,12 @@ import Link from "next/link";
 import Head from "next/head";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app } from "../../components/auth";
+import { useRouter } from "next/router";
 
 const Login = () => {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const route = useRouter();
 
     const login = () => {
         const auth = getAuth(app);
@@ -23,6 +25,10 @@ const Login = () => {
                 })
                 
                 window.localStorage.setItem('Authorization', await userCredential.user.getIdToken());
+
+                setTimeout(() => {
+                    route.push('/organizer/make-event')
+                }, 1000);
             })
             .catch((error) => {
                 const errorCode = error.code;

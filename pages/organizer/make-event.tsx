@@ -124,7 +124,7 @@ const MakeEvent = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex justify-between">
+                            <div className="flex justify-between flex-wrap">
                                 <div>
                                     <p className="mb-2">Nama penyelenggara</p>
                                     <Input

@@ -29,6 +29,7 @@ const Navbar = ({ isAuthenticated }: Props) => {
     const [isVisible, setIsVisible] = React.useState(false);
     const [isSearchBarExist, setIsSearchBarExist] = React.useState(false);
     const [isLinkExist, setIsLinkExist] = React.useState(true);
+    const [isAuthExist, setIsAuthExist] = React.useState(true);
     const route = useRouter();
 
     React.useEffect(() => {
@@ -38,12 +39,16 @@ const Navbar = ({ isAuthenticated }: Props) => {
     const checkRoutes = () => {
         const routeList = ["/result", "/concert", "/profile", "/check-in", "/concert/details", `/concert/${route.query.id}/details`, '/concert/selected-ticket'];
         const emptyNavbar = ["/organizer/login", "/organizer/register", "/check-ticket"];
+        const authNavbar = ["/organizer/make-event", "/check-ticket"];
 
         if (emptyNavbar.includes(window.location.pathname))
             setIsLinkExist(false);
 
         if (routeList.includes(window.location.pathname))
             setIsSearchBarExist(true);
+
+        if (authNavbar.includes(window.location.pathname))
+            setIsAuthExist(true);
     }
 
     const handleLogout = () => {
@@ -92,7 +97,7 @@ const Navbar = ({ isAuthenticated }: Props) => {
                         :
                         isLinkExist && !isAuthenticated &&
                         <div className="flex items-center">
-                            <Link href="/organizer/make-event">
+                            <Link href="/organizer/login">
                                 <div className="mr-10 flex items-center cursor-pointer hover:brightness-90 transition duration-300">
                                     <img src="/images/buat_event.svg" width={30} />
                                     <p className="ml-2 font-semibold text-white ">Buat Event</p>
