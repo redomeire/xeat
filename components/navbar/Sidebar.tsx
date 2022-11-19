@@ -4,11 +4,13 @@ import Button from "../button/Button";
 const sidebarData = [
     {
         name: 'Atur Event',
-        icon: "/images/sidebar/calendar.svg"
+        icon: "/images/sidebar/calendar.svg",
+        href: '/organizer/make-event'
     },
     {
         name: 'Check In',
-        icon: "/images/sidebar/check_in.svg"
+        icon: "/images/sidebar/check_in.svg",
+        href: '/check-ticket'
     }
 ];
 
@@ -31,20 +33,22 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: Props) => {
                     {
                         sidebarData.map((item, index) => {
                             return (
-                                <Button
-                                key={index}
-                                    content=""
-                                    className="flex justify-between cursor-pointer border-b-2 w-full" endIcon={
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                                        </svg>
-                                    }
-                                >
-                                    <li key={index} className="text-lg text-white my-4 relative flex items-center">
-                                        <img src={item.icon} className="bg-white rounded-lg" />
-                                        <p className="ml-5">{item.name}</p>
-                                    </li>
-                                </Button>
+                                <a href={item.href}>
+                                    <Button
+                                        key={index}
+                                        content=""
+                                        className="flex justify-between cursor-pointer border-b-2 w-full" endIcon={
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                            </svg>
+                                        }
+                                    >
+                                        <li key={index} className="text-lg text-white my-4 relative flex items-center">
+                                            <img src={item.icon} className="bg-white rounded-lg" />
+                                            <p className="ml-5">{item.name}</p>
+                                        </li>
+                                    </Button>
+                                </a>
                             );
                         })
                     }

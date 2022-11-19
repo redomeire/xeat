@@ -26,6 +26,7 @@ const MakeEvent = () => {
     const [stakeholderCount, setStakeholderCount] = React.useState(0);
     const [stakeholderArr, setStakeholderArr] = React.useState<SetStateAction<any>>([]);
     const [ticketDesign, setTicketDesign] = React.useState<SetStateAction<any>>();
+    const [concertMap, setConcertMap] = React.useState<SetStateAction<any>>();
 
     React.useEffect(() => {
         setTicketCountArr([])
@@ -109,8 +110,17 @@ const MakeEvent = () => {
                                 </div>
                                 <div className="ticket-design w-[45%] mb-5">
                                     <p className="capitalize text-xl mb-2">Denah konser</p>
-                                    <div className="bg-gray-400 text-white h-[200px] rounded-2xl relative">
-                                        <Input type="file" accept="image/*" name='ticket-design' className="cursor-pointer absolute top-0 h-[200px] w-full" />
+                                    <div className="bg-cover bg-center bg-gray-400 text-white h-[200px] rounded-2xl relative"
+                                     style={{ backgroundImage: `url('${concertMap}')` }}
+                                    >
+                                        <Input onChange={(e) => {
+                                            if (e.target.files !== undefined && e.target.files !== null) {
+                                                let objectURL = null;
+                                                if (e.target.files.length > 0)
+                                                    objectURL = URL.createObjectURL(e.target.files[0]);
+                                                setConcertMap(objectURL)
+                                            }
+                                        }} type="file" accept="image/*" name='concert-map' className="opacity-0 cursor-pointer absolute top-0 h-[200px] w-full" />
                                     </div>
                                 </div>
                             </div>
