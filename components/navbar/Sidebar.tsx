@@ -33,7 +33,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: Props) => {
                     {
                         sidebarData.map((item, index) => {
                             return (
-                                <a href={item.href}>
+                                <a href={item.href} key={index}>
                                     <Button
                                         key={index}
                                         content=""
