@@ -24,7 +24,7 @@ const UserLayout = ({children, isSidebarOpen, setIsSidebarOpen}: Props) => {
     return ( 
         <div>
             <Navbar isAuthenticated={isAuthenticated}/>
-                <div className="flex justify-between relative min-h-screen lg:ml-[316px]">
+                <div className="flex justify-between relative min-h-screen lg:ml-[400px]">
                     <Sidebar 
                     isSidebarOpen={isSidebarOpen} 
                     setIsSidebarOpen={setIsSidebarOpen}

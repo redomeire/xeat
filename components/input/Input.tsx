@@ -12,10 +12,26 @@ interface Props {
     disabled?: boolean,
     value?: any
     defaultValue?: any,
-    min?: any
+    min?: any,
+    name?: string,
+    accept?: string
 }
 
-const Input = ({ placeholder, onChange, className, beginningIcon, type, required, endIcon, disabled, value, defaultValue, min }: Props) => {
+const Input = ({ 
+    placeholder, 
+    onChange, 
+    className, 
+    beginningIcon, 
+    type, 
+    required, 
+    endIcon, 
+    disabled, 
+    value, 
+    defaultValue, 
+    min, 
+    name,
+    accept
+}: Props) => {
     return (
         <div className="w-full relative flex items-center">
             {
@@ -24,7 +40,7 @@ const Input = ({ placeholder, onChange, className, beginningIcon, type, required
                     {beginningIcon}
                 </div>
             }
-            <input type={type} placeholder={placeholder} onChange={onChange} className={`${beginningIcon !== undefined ? 'pl-10' : 'pl-5'} transition duration-300 outline-none focus:ring-3 ring-[#19083D] ${className} p-3`} required={required} disabled={disabled} value={value} defaultValue={defaultValue} min={min}/>
+            <input accept={accept} type={type} placeholder={placeholder} onChange={onChange} className={`${beginningIcon !== undefined ? 'pl-10' : 'pl-5'} transition duration-300 outline-none focus:ring-3 ring-[#19083D] ${className} p-3`} required={required} disabled={disabled} value={value} defaultValue={defaultValue} min={min} name={name}/>
             {
                 endIcon && 
                 <div className=" absolute right-[5px]">

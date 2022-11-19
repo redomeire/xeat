@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Swal from "sweetalert2";
 import Button from "../components/button/Button";
 import Input from "../components/input/Input";
 import UserLayout from "../components/layout/UserLayout";
@@ -8,6 +9,16 @@ import Password from "/images/password_icon.png";
 
 const CheckTicket = () => {
     const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
+    const [token, setToken] = React.useState('');
+
+    const handleSubmit = (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
+        Swal.fire({
+            title: 'token is valid',
+            text: `your token is : ${token}`,
+            icon: 'success',
+        })
+    }
 
     return (
         <UserLayout isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}>
@@ -23,23 +34,20 @@ const CheckTicket = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                         </svg>
                     </Button>
-                    <form className="flex items-center justify-center flex-col">
+                    <form onSubmit={handleSubmit} className="flex items-center justify-center flex-col">
                         <Input
                             type="text"
-                            className=" bg-white rounded-2xl border border-slate-500 md:w-[600px] w-full md:min-w-0 min-w-[280px]"
+                            className="w bg-white rounded-2xl border border-slate-500 md:w-[600px] w-full md:min-w-0 min-w-[280px]"
                             beginningIcon={<img src="/images/password_icon.png" alt="password" className="w-[24px]" />}
-                            placeholder="Masukkan hash tiket"
+                            placeholder="Masukkan Token Address"
+                            required
+                            onChange={(e) => setToken(e.target.value)}
                         />
                         <Button
                             content=""
-                            className="bg-primary text-white rounded-3xl px-20 py-3 mt-5"
-                        >Check</Button>
+                            className="font-semibold bg-primary text-white rounded-3xl px-20 py-3 mt-5"
+                        >Check-in</Button>
                     </form>
-                    <div className="md:w-[500px] w-full h-[200px] rounded-lg bg-gray-300 my-10"></div>
-                    <Button
-                        content=""
-                        className="bg-primary text-white rounded-3xl  px-20 py-3"
-                    >Check In</Button>
                 </div>
             </div>
         </UserLayout>
