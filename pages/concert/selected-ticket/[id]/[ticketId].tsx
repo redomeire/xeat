@@ -17,7 +17,6 @@ import {
     useContract,
 } from "@thirdweb-dev/react";
 import { BigNumber } from "ethers";
-import { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import FAQPopup from "../../../../components/popup/FAQPopup";
@@ -35,8 +34,8 @@ const SelectedTicket = () => {
     const [items, setItems] = React.useState<Props>({});
     const [ticketType, setTicketType] = React.useState<string | string[] | undefined>('');
     const [ticketAmount, setTicketAmount] = React.useState<number>(1);
-    const [tokenId, setToken] = useState<number>(0);
-    const [clickedPopup, setClickedPopup] = useState<boolean>(false);
+    const [tokenId, setToken] = React.useState<number>(0);
+    const [clickedPopup, setClickedPopup] = React.useState<boolean>(false);
 
     const router = useRouter();
     React.useEffect(() => {
@@ -167,7 +166,7 @@ const SelectedTicket = () => {
                             <div className="mt-5 flex items-center justify-between lg:flex-row flex-col">
                                 <div className="lg:text-left text-center">
                                     <h3 className="font-bold text-2xl">Total Cost</h3>
-                                    <h5 className="text-xl">ETH 0.052 MATIC</h5>
+                                    <h5 className="text-xl">ETH 0.13 MATIC</h5>
                                 </div>
                                 <Web3Button
                                     contractAddress={items.token}
