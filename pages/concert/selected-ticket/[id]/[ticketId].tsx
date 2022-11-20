@@ -162,10 +162,10 @@ const SelectedTicket = () => {
 
                             <hr className="mt-5" />
 
-                            <div className="mt-5 flex items-center justify-between md:flex-row flex-col">
-                                <div className="md:text-left text-center">
+                            <div className="mt-5 flex items-center justify-between lg:flex-row flex-col">
+                                <div className="lg:text-left text-center">
                                     <h3 className="font-bold text-2xl">Total Cost</h3>
-                                    <h5 className="text-2xl">ETH. 5</h5>
+                                    <h5 className="text-xl">ETH 0.052 MATIC</h5>
                                 </div>
                                 <Web3Button
                                     contractAddress={items.token}
@@ -176,10 +176,24 @@ const SelectedTicket = () => {
                                     onError={(error) => alert(error?.message)}
                                     accentColor="#82A8F4"
                                     colorMode="light"
-                                    className="md:mt-0 mt-5"
+                                    className="lg:mt-0 mt-5"
                                 >
                                     Mint
                                 </Web3Button>
+                                {/* <ConnectWallet
+                                        accentColor="#82A8F4"
+                                        colorMode="light"
+                                        auth={{
+                                            loginOptional: true,
+                                        }}
+                                    /> */}
+                                    {/* <ul onClick={() => setIsOpen(!isOpen)} className="h-fit relative bg-blue-400 rounded-lg outline-none p-3 flex items-center justify-center w-full mt-2 text-black font-semibold">
+                                        open
+                                        <div className={`${isOpen ? 'absolute top-14' : 'hidden'} rounded-xl bg-blue-400 w-full z-50 `}>
+                                            <li className="p-3 hover:brightness-105">e-wallet</li>
+                                            <li className="p-3">e-wallet</li>
+                                        </div>
+                                    </ul> */}
                             </div>
                         </div>
                     </form>
