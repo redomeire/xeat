@@ -20,6 +20,7 @@ import { BigNumber } from "ethers";
 import { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
+import FAQPopup from "../../../../components/popup/FAQPopup";
 
 interface Props {
     [x: string]: any;
@@ -35,6 +36,7 @@ const SelectedTicket = () => {
     const [ticketType, setTicketType] = React.useState<string | string[] | undefined>('');
     const [ticketAmount, setTicketAmount] = React.useState<number>(1);
     const [tokenId, setToken] = useState<number>(0);
+    const [clickedPopup, setClickedPopup] = useState<boolean>(false);
 
     const router = useRouter();
     React.useEffect(() => {
@@ -155,7 +157,7 @@ const SelectedTicket = () => {
                                 <p>Belum memiliki metamask wallet?
                                 </p>
                                 <div className="font-bold md:ml-3">
-                                    <Link className="font-bold md:ml-5" href="/faq">FAQ</Link>
+                                    <p className="font-bold cursor-pointer" onClick={() => setClickedPopup(true)}>FAQ</p>
                                 </div>
 
                             </div>
@@ -198,6 +200,7 @@ const SelectedTicket = () => {
                         </div>
                     </form>
                 </div>
+                { clickedPopup && <FAQPopup isClicked={clickedPopup} setIsClicked={setClickedPopup}/> }
             </AppLayout>
         </ThirdwebProvider>
     );
