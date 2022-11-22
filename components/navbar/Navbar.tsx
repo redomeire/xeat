@@ -5,6 +5,7 @@ import Image from "next/image";
 import Input from "../input/Input";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { deleteCookie } from "cookies-next";
 
 const navbarData = [
     {
@@ -53,6 +54,7 @@ const Navbar = ({ isAuthenticated }: Props) => {
 
     const handleLogout = () => {
         localStorage.removeItem('Authorization');
+        deleteCookie('auth')
         route.push('/organizer/login')
     }
 

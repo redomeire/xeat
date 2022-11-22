@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import Swal from "sweetalert2";
@@ -22,6 +23,9 @@ const CheckTicket = () => {
 
     return (
         <UserLayout isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}>
+            <Head>
+                <title>Xeat - Check Ticket</title>
+            </Head>
             <div className="min-h-screen rounded-2xl top-0 right-0 pt-32 w-full p-5">
                 <div className="flex items-center flex-col">
                     <h2 className="text-center text-primary text-2xl underline font-bold mb-5">Check ticket</h2>
