@@ -8,6 +8,8 @@ import Head from "next/head";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app } from "../../components/auth";
 import { useRouter } from "next/router";
+import { setCookie } from "cookies-next";
+
 
 const Login = () => {
     const [email, setEmail] = React.useState('');
@@ -25,6 +27,7 @@ const Login = () => {
                 })
                 
                 window.localStorage.setItem('Authorization', await userCredential.user.getIdToken());
+                setCookie('auth', userCredential.user.getIdToken())
 
                 setTimeout(() => {
                     route.push('/organizer/make-event')

@@ -20,7 +20,7 @@ const FAQPopup = ({ isClicked, setIsClicked }: Props) => {
                 <p className="uppercase font-bold text-3xl text-center mb-10">faq</p>
                 <div className="">
                     <p className="font-semibold text-xl font-poppins mb-3">Bagaimana cara membuat akun metamask wallet?</p>
-                    <p className="mb-4">Jika anda belum memiliki akun metamask wallet, anda dapat menontin video dibawah ini untuk tutorial lengkapnya</p>
+                    <p className="mb-4">Jika anda belum memiliki akun metamask wallet, anda dapat menonton video dibawah ini untuk tutorial lengkapnya</p>
                     <iframe className="rounded-lg shadow lg:w-[560px] w-full" height="315" src="https://www.youtube.com/embed/Af_lQ1zUnoM" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                 </div>
             </div>
