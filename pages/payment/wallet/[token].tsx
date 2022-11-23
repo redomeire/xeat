@@ -59,15 +59,9 @@ const Index = ({ data }: any) => {
         <AppLayout>
             <div className="flex items-center justify-center font-poppins">
                 <div className="flex flex-col items-center min-h-screen rounded-2xl top-0 right-0 w-[80%] pt-32 p-5">
-                    <p className="text-2xl font-bold">Petunjuk pembayaran dengan Gopay</p>
-                    <Canvas
-                        text="https://github.com/redomeire"
-                        options={{
-                            width: 250
-                        }}
-                    />
+                    <p className="text-2xl font-bold">Detail</p>
                     <div className="w-full mb-3">
-                        <p>Invoice <span className="font-bold text-sm">XHBSJDKJSD</span></p>
+                        <p>Invoice <span className="font-bold text-sm mb-10">XHBSJDKJSD</span></p>
                     </div>
                     <div className="lg:w-full w-[300px] mb-3 overflow-x-auto">
                         <table border={2} className='border-2 w-full'>
@@ -82,29 +76,29 @@ const Index = ({ data }: any) => {
                             <tbody>
                                 <tr>
                                     <td className="border-b-2 p-3 border-r-2">Premier</td>
-                                    <td className="border-b-2 p-3 border-r-2 text-right">Rp. 2.000.000</td>
+                                    <td className="border-b-2 p-3 border-r-2 text-right">Rp. 2.000</td>
                                     <td className="border-b-2 p-3 border-r-2 text-right">1</td>
-                                    <td className="border-b-2 p-3 text-right">Rp. 2.000.000</td>
+                                    <td className="border-b-2 p-3 text-right">Rp. 2.000</td>
                                 </tr>
                                 <tr>
                                     <td colSpan={3} className='p-3 border-r-2 border-b-2'>
                                         <p>Biaya lainnya</p>
                                         <p className="text-sm text-gray-400">Tidak dapat dikembalikan</p>
                                     </td>
-                                    <td className="p-3 text-right border-b-2">Rp 2.000.000</td>
+                                    <td className="p-3 text-right border-b-2">Rp 2.000</td>
                                 </tr>
                                 <tr>
                                     <td colSpan={3} className='p-3 border-r-2'>
                                         <p className="font-bold">Grand Total</p>
                                     </td>
-                                    <td className="p-3 text-right font-bold">Rp 2.000.000</td>
+                                    <td className="p-3 text-right font-bold">Rp 2.000</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div className="w-full">
-                        <Button onClick={handleClick} content="" className="rounded-lg p-3 bg-primary text-white mb-2">Bayar</Button>
-                        <p>Penting: Batas waktu pembayaran adalah sebelum <span className="font-bold">22 Nov 2022 20:00 (WIB)</span></p>
+                        <Button onClick={handleClick} content="" className="rounded-lg p-3 bg-primary text-white mb-2 px-10">Bayar</Button>
+                        {/* <p>Penting: Batas waktu pembayaran adalah sebelum <span className="font-bold">22 Nov 2022 20:00 (WIB)</span></p> */}
                     </div>
                 </div>
             </div>
@@ -163,7 +157,7 @@ export async function getServerSideProps() {
           // Below is the HTTP request body in JSON
           {
             transaction_details: {
-              order_id: "order-csb-" + uniqueId,
+              order_id: "order-csb-" + (+new Date()),
               gross_amount: 2000
             },
             credit_card: {
@@ -178,7 +172,6 @@ export async function getServerSideProps() {
           }
       }).then( snapResponse => { 
           let snapToken = snapResponse.data.token;
-          console.log("Retrieved snap token:", snapToken);
           return snapToken
         })
 
