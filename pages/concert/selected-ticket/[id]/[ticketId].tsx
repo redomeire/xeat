@@ -201,16 +201,18 @@ const CustomConnectWallet = ({ token, tokenId, ticketAmount }: CustomConnect) =>
 
     const dropdownData = [
         {
-            name: 'e-wallet',
+            name: 'Gopay',
             icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+            </svg>,
+            href: `/payment/wallet/${token}`
         },
         {
             name: 'credit card',
             icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
-            </svg>
+            </svg>,
+            href: `/payment/credit-card/${token}`
         }
     ]
 
@@ -232,7 +234,7 @@ const CustomConnectWallet = ({ token, tokenId, ticketAmount }: CustomConnect) =>
             </Web3Button>
 
             {address &&
-                <button className="hover:bg-blue-400 transition duration-200 ring-2 mt-3 p-3 rounded-lg flex items-center justify-center font-semibold relative bg-blue-300 text-black w-full" onClick={() => setIsOpen(!isOpen)}>
+                <div className="hover:bg-blue-400 transition duration-200 ring-2 mt-3 p-3 rounded-lg flex items-center justify-center font-semibold relative bg-blue-300 text-black w-full cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
                     <div className="flex items-center">
                         <p>Other Option</p>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={`w-4 h-4 mt-1 ml-2 transition duration-150 ${isOpen && '-rotate-180'}`}>
@@ -243,15 +245,17 @@ const CustomConnectWallet = ({ token, tokenId, ticketAmount }: CustomConnect) =>
                         {
                             dropdownData.map((data, index) => {
                                 return (
-                                    <div key={index} className="transition duration-100 flex items-center p-3 py-4 rounded-lg hover:bg-slate-300">
-                                        {data.icon}
-                                        <p className="ml-2">{data.name}</p>
-                                    </div>
+                                    <a href={data.href} key={index}>
+                                        <div className="transition duration-100 flex items-center p-3 py-4 rounded-lg hover:bg-slate-300">
+                                            {data.icon}
+                                            <p className="ml-2">{data.name}</p>
+                                        </div>
+                                    </a>
                                 )
                             })
                         }
                     </div>
-                </button>
+                </div>
             }
         </div>
     )
