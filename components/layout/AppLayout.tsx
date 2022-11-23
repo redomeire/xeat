@@ -19,7 +19,7 @@ const AppLayout = ({children}: Props) => {
     return ( 
         <div>
             <Navbar isAuthenticated={isAuthenticated}/>
-                <div className="">{children}</div>
+                <div className="min-h-screen">{children}</div>
             <Footer/>
         </div>
      );
