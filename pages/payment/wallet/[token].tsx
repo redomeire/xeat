@@ -21,39 +21,39 @@ const Index = ({ data }: any) => {
     console.log('data : ' + data)
 
     React.useEffect(() => {
-        const midtransScriptUrl = 'https://app.midtrans.com/snap/snap.js';
-        const myMidtransClientKey = process.env.NEXT_PUBLIC_MIDTRANS_PROD_CLIENT_KEY;
+        // const midtransScriptUrl = 'https://app.midtrans.com/snap/snap.js';
+        // const myMidtransClientKey = process.env.NEXT_PUBLIC_MIDTRANS_PROD_CLIENT_KEY;
 
-        let scriptTag = document.createElement('script');
-        scriptTag.src = midtransScriptUrl;
+        // let scriptTag = document.createElement('script');
+        // scriptTag.src = midtransScriptUrl;
 
-        if (typeof myMidtransClientKey !== 'undefined')
-            scriptTag.setAttribute('data-client-key', myMidtransClientKey);
+        // if (typeof myMidtransClientKey !== 'undefined')
+        //     scriptTag.setAttribute('data-client-key', myMidtransClientKey);
 
-        document.body.appendChild(scriptTag);
+        // document.body.appendChild(scriptTag);
     }, []);
 
-    const handleClick = () => {
-        if (typeof window !== 'undefined')
-            window.snap.pay(data, {
-                onSuccess: function(result: any){
-                    /* You may add your own implementation here */
-                    alert("payment success!"); console.log(result);
-                  },
-                  onPending: function(result: any){
-                    /* You may add your own implementation here */
-                    alert("wating your payment!"); console.log(result);
-                  },
-                  onError: function(result: any){
-                    /* You may add your own implementation here */
-                    alert("payment failed!"); console.log(result);
-                  },
-                  onClose: function(){
-                    /* You may add your own implementation here */
-                    alert('you closed the popup without finishing the payment');
-                  }
-            })
-    }
+    // const handleClick = () => {
+    //     if (typeof window !== 'undefined')
+    //         window.snap.pay(data, {
+    //             onSuccess: function(result: any){
+    //                 /* You may add your own implementation here */
+    //                 alert("payment success!"); console.log(result);
+    //               },
+    //               onPending: function(result: any){
+    //                 /* You may add your own implementation here */
+    //                 alert("wating your payment!"); console.log(result);
+    //               },
+    //               onError: function(result: any){
+    //                 /* You may add your own implementation here */
+    //                 alert("payment failed!"); console.log(result);
+    //               },
+    //               onClose: function(){
+    //                 /* You may add your own implementation here */
+    //                 alert('you closed the popup without finishing the payment');
+    //               }
+    //         })
+    // }
 
     return (
         <AppLayout>
@@ -97,8 +97,7 @@ const Index = ({ data }: any) => {
                         </table>
                     </div>
                     <div className="w-full">
-                        <Button onClick={handleClick} content="" className="rounded-lg p-3 bg-primary text-white mb-2 px-10">Bayar</Button>
-                        {/* <p>Penting: Batas waktu pembayaran adalah sebelum <span className="font-bold">22 Nov 2022 20:00 (WIB)</span></p> */}
+                        <Button content="" className="rounded-lg p-3 bg-primary text-white mb-2 px-10">Bayar</Button>
                     </div>
                 </div>
             </div>
@@ -107,77 +106,44 @@ const Index = ({ data }: any) => {
 }
 
 export async function getServerSideProps() {
-    // const midtransClient = require('midtrans-client');
-    let uniqueId = nextId();
 
-    // let snap = new midtransClient.Snap({
-    //     isProduction: true,
-    //     serverKey: process.env.NEXT_PUBLIC_MIDTRANS_PROD_SERVER_KEY,
-    //     // clientKey: process.env.NEXT_PUBLIC_MIDTRANS_CLIENT_KEY
-    // });
-
-    // let parameter = {
-    //     "payment_type": "gopay",
-    //     "transaction_details": {
-    //         "gross_amount": 2000,
-    //         "order_id": `test-transaction-${uniqueId}`,
+    // let resp = await axios({
+    //     // Below is the API URL endpoint
+    //     url: "https://app.midtrans.com/snap/v1/transactions",
+    //     method: "post",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Accept: "application/json",
+    //       Authorization:
+    //         "Basic " +
+    //         Buffer.from(`${process.env.NEXT_PUBLIC_MIDTRANS_PROD_SERVER_KEY}`).toString("base64")
+    //       // Above is API server key for the Midtrans account, encoded to base64
     //     },
-    //     "credit_card": {
-    //         "secure": true
-    //     },
-    //     "customer_details": {
-    //         "first_name": "budi",
-    //         "last_name": "pratama",
-    //         "email": "budi.pra@example.com",
-    //         "phone": "08111222333"
-    //     }
-    // };
-
-    // let resp = await snap.createTransaction(parameter)
-    //     .then((transaction: any) => {
-    //         // transaction token
-    //         let transactionToken = transaction.token;
-    //         console.log('transactionToken:', transaction);
-    //         return transactionToken
+    //     data:
+    //       // Below is the HTTP request body in JSON
+    //       {
+    //         transaction_details: {
+    //           order_id: "order-csb-" + (+new Date()),
+    //           gross_amount: 2000
+    //         },
+    //         credit_card: {
+    //           secure: true
+    //         },
+    //         customer_details: {
+    //           first_name: "Johny",
+    //           last_name: "Kane",
+    //           email: "testmidtrans@mailnesia.com",
+    //           phone: "08111222333"
+    //         }
+    //       }
+    //   }).then( snapResponse => { 
+    //       let snapToken = snapResponse.data.token;
+    //       return snapToken
     //     })
-
-    let resp = await axios({
-        // Below is the API URL endpoint
-        url: "https://app.midtrans.com/snap/v1/transactions",
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization:
-            "Basic " +
-            Buffer.from(`${process.env.NEXT_PUBLIC_MIDTRANS_PROD_SERVER_KEY}`).toString("base64")
-          // Above is API server key for the Midtrans account, encoded to base64
-        },
-        data:
-          // Below is the HTTP request body in JSON
-          {
-            transaction_details: {
-              order_id: "order-csb-" + (+new Date()),
-              gross_amount: 2000
-            },
-            credit_card: {
-              secure: true
-            },
-            customer_details: {
-              first_name: "Johny",
-              last_name: "Kane",
-              email: "testmidtrans@mailnesia.com",
-              phone: "08111222333"
-            }
-          }
-      }).then( snapResponse => { 
-          let snapToken = snapResponse.data.token;
-          return snapToken
-        })
 
     return {
         props: {
-            data: `${await resp}`
+            data: 'your name'
         }
     }
 }
