@@ -24,7 +24,7 @@ const CheckTicket = () => {
     return (
         <UserLayout isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}>
             <Head>
-                <title>Xeat - Check Ticket</title>
+                <title>TIC - Check Ticket</title>
             </Head>
             <div className="min-h-screen rounded-2xl top-0 right-0 pt-32 w-full p-5">
                 <div className="flex items-center flex-col">

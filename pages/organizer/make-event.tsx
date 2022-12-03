@@ -61,7 +61,7 @@ const MakeEvent = () => {
     return (
         <UserLayout isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}>
             <Head>
-                <title>Xeat - Make your event</title>
+                <title>TIC - Make your event</title>
             </Head>
             <div className="min-h-screen rounded-2xl top-0 right-0 pt-32 w-full p-5">
                 <div className="flex flex-col">

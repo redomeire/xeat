@@ -5,7 +5,7 @@ const Sports = () => {
     return (
         <div>
             <Head>
-                <title>Xeat - Sports</title>
+                <title>TIC - Sports</title>
             </Head>
             <UnderConstruction />
         </div>

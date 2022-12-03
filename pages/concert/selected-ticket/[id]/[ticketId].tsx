@@ -107,7 +107,7 @@ const SelectedTicket = () => {
     return (
         <AppLayout>
             <Head>
-                <title>Xeat - {items.event_name || 'Selected ticket'}</title>
+                <title>TIC - {items.event_name || 'Selected ticket'}</title>
             </Head>
             <div className="jumbotron py-16 bg-[#19083D] text-white p-5 flex items-center flex-col">
                 <div className="jumbotron pt-10 bg-[#19083D] text-white p-0 flex items-center flex-col lg:flex-row md:justify-around justify-between w-full">

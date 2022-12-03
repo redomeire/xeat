@@ -5,7 +5,7 @@ const FAQ = () => {
     return ( 
         <div>
             <Head>
-                <title>Xeat - FAQ</title>
+                <title>TIC - FAQ</title>
             </Head>
             <UnderConstruction/>
         </div>

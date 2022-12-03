@@ -5,7 +5,7 @@ const More = () => {
     return (
         <div>
             <Head>
-                <title>Xeat - More</title>
+                <title>TIC - More</title>
             </Head>
             <UnderConstruction />
         </div>

@@ -68,7 +68,7 @@ const Details = () => {
     return (
         <AppLayout>
             <Head>
-                <title>Xeat - {items.event_name || 'concert'}</title>
+                <title>TIC - {items.event_name || 'concert'}</title>
             </Head>
             <div className="jumbotron py-16 bg-[#19083D] text-white p-5 flex items-center flex-col">
                 <div className="md:w-[90%] jumbotron pt-20 bg-[#19083D] text-white p-5 flex items-center flex-col-reverse lg:flex-row justify-between">
