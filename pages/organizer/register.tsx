@@ -72,7 +72,7 @@ const Register = () => {
     return (
         <AppLayout>
             <Head>
-                <title>Xeat - Register</title>
+                <title>TIC - Register</title>
             </Head>
             <div className="bg-[#19083D] pt-40 px-20 min-h-screen flex justify-between items-center lg:flex-row flex-col">
                 <h1 className="text-white font-bold text-5xl lg:w-1/2 w-full lg:mb-0 mb-10">Get Your First NFT Ticket!</h1>

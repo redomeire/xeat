@@ -66,7 +66,7 @@ const Navbar = ({ isAuthenticated }: Props) => {
                         {/* <img src={XeatLogo} alt="logo" className="w-[150px]" /> */}
                         <div className="cursor-pointer">
                             <Link href='/'>
-                                <img src="/images/xeat_logo.png" alt="pic" width={150} height={80} />
+                                <img src="/images/tic_logo.png" alt="pic" width={130} height={80} />
                             </Link>
                         </div>
                     </div>
@@ -115,7 +115,7 @@ const Navbar = ({ isAuthenticated }: Props) => {
                         <div className="text-white cursor-pointer">
                             {/* <img src={'../../images/xeat_logo.png'} alt="logo" className="w-[150px]" /> */}
                             <Link href="/">
-                                <img src="/images/xeat_logo.png" alt="pic" width={150} height={80} />
+                                <img src="/images/tic_logo.png" alt="pic" width={130} height={80} />
                             </Link>
                         </div>
                     </div>

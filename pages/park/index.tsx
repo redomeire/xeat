@@ -5,7 +5,7 @@ const Park = () => {
     return ( 
         <div>
             <Head>
-                <title>Xeat - Park</title>
+                <title>TIC - Park</title>
             </Head>
             <UnderConstruction />
         </div>

@@ -48,7 +48,7 @@ const Dashboard = () => {
     return (
         <AppLayout>
             <Head>
-                <title>Xeat- Home</title>
+                <title>TIC- Home</title>
             </Head>
             <div className="jumbotron pt-20 px-10 bg-[#19083D] text-white p-5 flex items-center flex-col-reverse lg:flex-row justify-between">
                 <div

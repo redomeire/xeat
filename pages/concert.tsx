@@ -45,7 +45,7 @@ const Dashboard = () => {
     return (
         <AppLayout>
             <Head>
-                <title>Xeat - Concert</title>
+                <title>TIC - Concert</title>
             </Head>
             <div className="jumbotron pt-20 bg-primary text-white p-5 flex items-center flex-col text-center min-h-screen">
                 <div>
