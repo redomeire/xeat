@@ -1,3 +1,4 @@
+import axios from "axios";
 import Head from "next/head";
 import React, { SetStateAction } from "react";
 import Swal from "sweetalert2";
@@ -28,6 +29,12 @@ const MakeEvent = () => {
     const [ticketDesign, setTicketDesign] = React.useState<SetStateAction<any>>();
     const [concertMap, setConcertMap] = React.useState<SetStateAction<any>>();
 
+    // event datas
+    const [eventName, setEventName] = React.useState<SetStateAction<String>>('');
+    const [eventCategory, setEventCategory] = React.useState<SetStateAction<String>>('');
+    const [hostName, setHostName] = React.useState<SetStateAction<String>>('');
+    const [location, setLocation] = React.useState<SetStateAction<String>>('');
+
     React.useEffect(() => {
         setTicketCountArr([])
 
@@ -52,10 +59,36 @@ const MakeEvent = () => {
 
     const handleSubmit = (ev: { preventDefault: () => void; }) => {
         ev.preventDefault();
-        Swal.fire({
-            icon: 'success',
-            title: 'success creating event'
+
+        axios.post('https://youvandra.wtf/public/api/request-event', {
+            event_name: eventName,
+            category: eventCategory,
+            host_name: hostName,
+            location: location,
+            ticket_type: '["REGULAR", "VIP", "VVIP"]',
+            total_ticket: '["type1", "type2", "type3"]',
+            section_seat: '',
+            benefit: '',
+            wallet: '',
+            percentage: ''
         })
+        .then((res) => {
+            console.log(res.data);
+
+            Swal.fire({
+                icon: 'success',
+                title: 'success creating event'
+            })
+        })
+        .catch((err) => {
+            console.log(err);
+
+            Swal.fire({
+                icon: 'error',
+                title: 'cannot create event'
+            })
+        })
+
     }
 
     return (
@@ -89,12 +122,13 @@ const MakeEvent = () => {
                             <div className="mt-10 flex justify-between">
                                 <div className="w-[45%]">
                                     <div className="mb-2">
-                                        <p className="mb-2">Masukkan kategori event</p>
+                                        <p className="mb-2">Masukkan nama event</p>
                                         <Input
                                             placeholder="Nama event*"
                                             type="text"
                                             className="ring-1 rounded-lg w-full"
                                             required
+                                            onChange={e => setEventName(e.target.value)}
                                         />
                                     </div>
                                     <div className="">
@@ -102,10 +136,12 @@ const MakeEvent = () => {
                                         <select
                                             placeholder="kategori event"
                                             className="p-2 ring-1 ring-primary rounded-lg w-full"
+                                            onChange={e => setEventCategory(e.target.value)}
+                                            defaultValue={'Concert'}
                                         >
                                             {
                                                 selectData.map((data, index) => {
-                                                    return <option key={index}>{data.name}</option>
+                                                    return <option key={index} value={data.name}>{data.name}</option>
                                                 })
                                             }
                                         </select>
@@ -133,7 +169,9 @@ const MakeEvent = () => {
                                     <Input
                                         type="text"
                                         placeholder="Masukkan nama"
-                                        className="ring-1 rounded-lg" />
+                                        className="ring-1 rounded-lg"
+                                        onChange={e => setHostName(e.target.value)}
+                                        />
                                 </div>
                                 <div className="ml-5">
                                     <div className="flex items-center w-fit">
@@ -166,7 +204,9 @@ const MakeEvent = () => {
                                 <Input
                                     type="text"
                                     placeholder="Lokasi event"
-                                    className="ring-1 rounded-lg w-1/2" />
+                                    className="ring-1 rounded-lg w-1/2"
+                                    onChange={e => setLocation(e.target.value)}
+                                    />
                             </div>
                         </div>
                         <div className="my-4 w-fit">
