@@ -105,7 +105,6 @@ const Navbar = ({ isAuthenticated }: Props) => {
                                     <p className="ml-2 font-semibold text-white ">Buat Event</p>
                                 </div>
                             </Link>
-                            <Button content="Sign in" className="w-fit bg-white text-black rounded-lg  px-5 py-3" >Connect Wallet</Button>
                         </div>
                 }
             </div>
@@ -165,7 +164,6 @@ const Navbar = ({ isAuthenticated }: Props) => {
                                         <p className="ml-2 font-semibold text-white">Buat Event</p>
                                     </div>
                                 </Link>
-                                <Button content="Sign in" className="w-fit bg-white text-black rounded-lg  px-5 py-3" >Connect Wallet</Button>
                             </div>
                     }
                 </div>

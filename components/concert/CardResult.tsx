@@ -79,6 +79,16 @@ const CardResult = ({ pageId, event_name, event_date, event_time, location, line
                         <h3 className="font-bold">Venue</h3>
                         <p className="">{location}</p>
                     </div>
+                    <div className="my-2">
+                        <h3 className="font-bold">Section</h3>
+                        <p className="">CAT 4, CAT 5A, CAT 5B</p>
+                    </div>
+                    <div className="my-2">
+                        <h3 className="font-bold">Benefit</h3>
+                        <ul className="ml-5">
+                            <li className="list-disc">NFT regular ticket</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
