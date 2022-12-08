@@ -50,7 +50,7 @@ const Details = () => {
     }
 
     const getData = () => {
-        axios.get('https://xeat-website-api.herokuapp.com/public/api/event')
+        axios.get('https://youvandra.wtf/public/api/event')
             .then((res) => {
                 if (res.data !== null) {
                     res.data.forEach((element: any) => {
